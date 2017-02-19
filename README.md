@@ -1,1 +1,1 @@
-Pictronome
+Metronome based on PIC16F microcontroller.
