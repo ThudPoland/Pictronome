@@ -10,6 +10,7 @@
 
 #include "i2c.h"
 #include "softpwm.h"
+#include "systicktimer.h"
 
 #ifdef	__cplusplus
 extern "C" {
@@ -20,8 +21,10 @@ struct InterruptsStatus
     uint8_t isSoftwarePWMInterrupt;
     uint8_t isKeyboardInterrupt;
     uint8_t isI2CReadyForWork;
+    uint8_t isSysTickReady;
     SoftPWMSettings settings;
     I2CProcess communicationProcess;
+    SysTick timer;
 };
 
 struct InterruptsStatus LocalInterruptsStatus;

@@ -8,8 +8,8 @@ void InitSoftPWMHardware()
     LATCbits.LATC5 = 0;
     
     //Init Timer for software PWM
-    T4CONbits.T4CKPS = PRESCALER4;
-    T4CONbits.T4OUTPS = PRESCALER1;
+    T4CONbits.T4CKPS = PWM_PRESCALER4;
+    T4CONbits.T4OUTPS = PWM_PRESCALER1;
     T4CONbits.TMR4ON = 1;
     
     PIE2bits.TMR4IE = 1;

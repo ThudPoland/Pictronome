@@ -20,29 +20,29 @@ extern "C" {
 #include <stddef.h>
 #include <xc.h>
 
-#define TIM0_FOSC 0
-#define PRESCALER8 0b010
-#define PRESCALER256 0b111
-#define PRESCALER64 0b101
-    
-    
-void InitSysTickTimer0();
-void EnableSysTickInterrupt();
-void DisableSysTickInterrupt();
-void ClearSysTickInterruptFlag();
-bool GetSysTickInterruptFlag();
+#define SYSTICK_PRESCALER1 0x00
+#define SYSTICK_POSTSCALER1 0x00
+#define SYSTICK_PRESCALER64 0x11
+#define SYSTICK_PRESCALER4 0x01
+#define SYSTICK_POSTSCALER16 0x0F
 
 typedef struct
 {
-    uint16_t milliseconds;
-    uint8_t ticks;
+    uint32_t milliseconds;
     
-    uint8_t ticksPerMillisecond;
+    uint32_t lastOverflowValue;
     
+    bool isOverflow;
     bool enabled;
 } SysTick;
 
-SysTick programClock;
+void InitSysTickHardware();
+void InitSysTickObject(SysTick* timer);
+uint32_t GetTime(SysTick* timer);
+uint32_t GetTimeFromLastAction(SysTick* timer, uint32_t lastTime);
+void IncreaseSysTick(SysTick* timer);
+void OverflowSysTick(SysTick* timer);
+void Wait(SysTick* timer, uint32_t waitTime);
 
 #ifdef	__cplusplus
 }

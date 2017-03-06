@@ -17,6 +17,7 @@
         <itemPath>include/systicktimer.h</itemPath>
         <itemPath>include/pwm.h</itemPath>
         <itemPath>include/softpwm.h</itemPath>
+        <itemPath>buzzer.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -38,6 +39,7 @@
         <itemPath>src/oscillator.c</itemPath>
         <itemPath>src/pwm.c</itemPath>
         <itemPath>src/softpwm.c</itemPath>
+        <itemPath>buzzer.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -60,8 +62,8 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.40</languageToolchainVersion>
-        <platform>2</platform>
+        <languageToolchainVersion>1.41</languageToolchainVersion>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
@@ -75,6 +77,8 @@
           <parseOnProdLoad>false</parseOnProdLoad>
           <alternateLoadableFile></alternateLoadableFile>
         </loading>
+        <subordinates>
+        </subordinates>
       </compileType>
       <makeCustomizationType>
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>

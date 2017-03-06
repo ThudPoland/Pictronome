@@ -18,10 +18,10 @@
 extern "C" {
 #endif
 
-#define PRESCALER1 0x00
-#define POSTSCALER1 0x00
-#define PRESCALER64 0x11
-#define PRESCALER4 0x01
+#define PWM_PRESCALER1 0x00
+#define PWM_POSTSCALER1 0x00
+#define PWM_PRESCALER64 0x11
+#define PWM_PRESCALER4 0x01
     
 typedef struct
 {

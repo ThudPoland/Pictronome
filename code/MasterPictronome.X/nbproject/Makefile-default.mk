@@ -19,7 +19,7 @@ endif
 endif
 
 # Environment
-MKDIR=mkdir -p
+MKDIR=gnumkdir -p
 RM=rm -f 
 MV=mv 
 CP=cp 
@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=src/systicktimer.c src/buttons.c src/config.c src/i2c-tools.c src/i2c.c src/interrupts.c src/main.c src/menuentry.c src/oscillator.c src/pwm.c src/softpwm.c
+SOURCEFILES_QUOTED_IF_SPACED=src/systicktimer.c src/buttons.c src/config.c src/i2c-tools.c src/i2c.c src/interrupts.c src/main.c src/menuentry.c src/oscillator.c src/pwm.c src/softpwm.c buzzer.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/systicktimer.p1 ${OBJECTDIR}/src/buttons.p1 ${OBJECTDIR}/src/config.p1 ${OBJECTDIR}/src/i2c-tools.p1 ${OBJECTDIR}/src/i2c.p1 ${OBJECTDIR}/src/interrupts.p1 ${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/menuentry.p1 ${OBJECTDIR}/src/oscillator.p1 ${OBJECTDIR}/src/pwm.p1 ${OBJECTDIR}/src/softpwm.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/src/systicktimer.p1.d ${OBJECTDIR}/src/buttons.p1.d ${OBJECTDIR}/src/config.p1.d ${OBJECTDIR}/src/i2c-tools.p1.d ${OBJECTDIR}/src/i2c.p1.d ${OBJECTDIR}/src/interrupts.p1.d ${OBJECTDIR}/src/main.p1.d ${OBJECTDIR}/src/menuentry.p1.d ${OBJECTDIR}/src/oscillator.p1.d ${OBJECTDIR}/src/pwm.p1.d ${OBJECTDIR}/src/softpwm.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/systicktimer.p1 ${OBJECTDIR}/src/buttons.p1 ${OBJECTDIR}/src/config.p1 ${OBJECTDIR}/src/i2c-tools.p1 ${OBJECTDIR}/src/i2c.p1 ${OBJECTDIR}/src/interrupts.p1 ${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/menuentry.p1 ${OBJECTDIR}/src/oscillator.p1 ${OBJECTDIR}/src/pwm.p1 ${OBJECTDIR}/src/softpwm.p1 ${OBJECTDIR}/buzzer.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/src/systicktimer.p1.d ${OBJECTDIR}/src/buttons.p1.d ${OBJECTDIR}/src/config.p1.d ${OBJECTDIR}/src/i2c-tools.p1.d ${OBJECTDIR}/src/i2c.p1.d ${OBJECTDIR}/src/interrupts.p1.d ${OBJECTDIR}/src/main.p1.d ${OBJECTDIR}/src/menuentry.p1.d ${OBJECTDIR}/src/oscillator.p1.d ${OBJECTDIR}/src/pwm.p1.d ${OBJECTDIR}/src/softpwm.p1.d ${OBJECTDIR}/buzzer.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/src/systicktimer.p1 ${OBJECTDIR}/src/buttons.p1 ${OBJECTDIR}/src/config.p1 ${OBJECTDIR}/src/i2c-tools.p1 ${OBJECTDIR}/src/i2c.p1 ${OBJECTDIR}/src/interrupts.p1 ${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/menuentry.p1 ${OBJECTDIR}/src/oscillator.p1 ${OBJECTDIR}/src/pwm.p1 ${OBJECTDIR}/src/softpwm.p1
+OBJECTFILES=${OBJECTDIR}/src/systicktimer.p1 ${OBJECTDIR}/src/buttons.p1 ${OBJECTDIR}/src/config.p1 ${OBJECTDIR}/src/i2c-tools.p1 ${OBJECTDIR}/src/i2c.p1 ${OBJECTDIR}/src/interrupts.p1 ${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/menuentry.p1 ${OBJECTDIR}/src/oscillator.p1 ${OBJECTDIR}/src/pwm.p1 ${OBJECTDIR}/src/softpwm.p1 ${OBJECTDIR}/buzzer.p1
 
 # Source Files
-SOURCEFILES=src/systicktimer.c src/buttons.c src/config.c src/i2c-tools.c src/i2c.c src/interrupts.c src/main.c src/menuentry.c src/oscillator.c src/pwm.c src/softpwm.c
+SOURCEFILES=src/systicktimer.c src/buttons.c src/config.c src/i2c-tools.c src/i2c.c src/interrupts.c src/main.c src/menuentry.c src/oscillator.c src/pwm.c src/softpwm.c buzzer.c
 
 
 CFLAGS=
@@ -91,7 +91,7 @@ ${OBJECTDIR}/src/systicktimer.p1: src/systicktimer.c  nbproject/Makefile-${CND_C
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/systicktimer.p1.d 
 	@${RM} ${OBJECTDIR}/src/systicktimer.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/systicktimer.p1  src/systicktimer.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/systicktimer.p1  src/systicktimer.c 
 	@-${MV} ${OBJECTDIR}/src/systicktimer.d ${OBJECTDIR}/src/systicktimer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/systicktimer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -99,7 +99,7 @@ ${OBJECTDIR}/src/buttons.p1: src/buttons.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/buttons.p1.d 
 	@${RM} ${OBJECTDIR}/src/buttons.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/buttons.p1  src/buttons.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/buttons.p1  src/buttons.c 
 	@-${MV} ${OBJECTDIR}/src/buttons.d ${OBJECTDIR}/src/buttons.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/buttons.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -107,7 +107,7 @@ ${OBJECTDIR}/src/config.p1: src/config.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/config.p1.d 
 	@${RM} ${OBJECTDIR}/src/config.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/config.p1  src/config.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/config.p1  src/config.c 
 	@-${MV} ${OBJECTDIR}/src/config.d ${OBJECTDIR}/src/config.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/config.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -115,7 +115,7 @@ ${OBJECTDIR}/src/i2c-tools.p1: src/i2c-tools.c  nbproject/Makefile-${CND_CONF}.m
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/i2c-tools.p1.d 
 	@${RM} ${OBJECTDIR}/src/i2c-tools.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/i2c-tools.p1  src/i2c-tools.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/i2c-tools.p1  src/i2c-tools.c 
 	@-${MV} ${OBJECTDIR}/src/i2c-tools.d ${OBJECTDIR}/src/i2c-tools.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/i2c-tools.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -123,7 +123,7 @@ ${OBJECTDIR}/src/i2c.p1: src/i2c.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/i2c.p1.d 
 	@${RM} ${OBJECTDIR}/src/i2c.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/i2c.p1  src/i2c.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/i2c.p1  src/i2c.c 
 	@-${MV} ${OBJECTDIR}/src/i2c.d ${OBJECTDIR}/src/i2c.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/i2c.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -131,7 +131,7 @@ ${OBJECTDIR}/src/interrupts.p1: src/interrupts.c  nbproject/Makefile-${CND_CONF}
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/interrupts.p1.d 
 	@${RM} ${OBJECTDIR}/src/interrupts.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/interrupts.p1  src/interrupts.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/interrupts.p1  src/interrupts.c 
 	@-${MV} ${OBJECTDIR}/src/interrupts.d ${OBJECTDIR}/src/interrupts.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/interrupts.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -139,7 +139,7 @@ ${OBJECTDIR}/src/main.p1: src/main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/main.p1.d 
 	@${RM} ${OBJECTDIR}/src/main.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/main.p1  src/main.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/main.p1  src/main.c 
 	@-${MV} ${OBJECTDIR}/src/main.d ${OBJECTDIR}/src/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -147,7 +147,7 @@ ${OBJECTDIR}/src/menuentry.p1: src/menuentry.c  nbproject/Makefile-${CND_CONF}.m
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/menuentry.p1.d 
 	@${RM} ${OBJECTDIR}/src/menuentry.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/menuentry.p1  src/menuentry.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/menuentry.p1  src/menuentry.c 
 	@-${MV} ${OBJECTDIR}/src/menuentry.d ${OBJECTDIR}/src/menuentry.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/menuentry.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -155,7 +155,7 @@ ${OBJECTDIR}/src/oscillator.p1: src/oscillator.c  nbproject/Makefile-${CND_CONF}
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/oscillator.p1.d 
 	@${RM} ${OBJECTDIR}/src/oscillator.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/oscillator.p1  src/oscillator.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/oscillator.p1  src/oscillator.c 
 	@-${MV} ${OBJECTDIR}/src/oscillator.d ${OBJECTDIR}/src/oscillator.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/oscillator.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -163,7 +163,7 @@ ${OBJECTDIR}/src/pwm.p1: src/pwm.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/pwm.p1.d 
 	@${RM} ${OBJECTDIR}/src/pwm.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/pwm.p1  src/pwm.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/pwm.p1  src/pwm.c 
 	@-${MV} ${OBJECTDIR}/src/pwm.d ${OBJECTDIR}/src/pwm.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/pwm.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -171,16 +171,24 @@ ${OBJECTDIR}/src/softpwm.p1: src/softpwm.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/softpwm.p1.d 
 	@${RM} ${OBJECTDIR}/src/softpwm.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/softpwm.p1  src/softpwm.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/softpwm.p1  src/softpwm.c 
 	@-${MV} ${OBJECTDIR}/src/softpwm.d ${OBJECTDIR}/src/softpwm.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/softpwm.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/buzzer.p1: buzzer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/buzzer.p1.d 
+	@${RM} ${OBJECTDIR}/buzzer.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/buzzer.p1  buzzer.c 
+	@-${MV} ${OBJECTDIR}/buzzer.d ${OBJECTDIR}/buzzer.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/buzzer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/src/systicktimer.p1: src/systicktimer.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/systicktimer.p1.d 
 	@${RM} ${OBJECTDIR}/src/systicktimer.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/systicktimer.p1  src/systicktimer.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/systicktimer.p1  src/systicktimer.c 
 	@-${MV} ${OBJECTDIR}/src/systicktimer.d ${OBJECTDIR}/src/systicktimer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/systicktimer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -188,7 +196,7 @@ ${OBJECTDIR}/src/buttons.p1: src/buttons.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/buttons.p1.d 
 	@${RM} ${OBJECTDIR}/src/buttons.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/buttons.p1  src/buttons.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/buttons.p1  src/buttons.c 
 	@-${MV} ${OBJECTDIR}/src/buttons.d ${OBJECTDIR}/src/buttons.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/buttons.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -196,7 +204,7 @@ ${OBJECTDIR}/src/config.p1: src/config.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/config.p1.d 
 	@${RM} ${OBJECTDIR}/src/config.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/config.p1  src/config.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/config.p1  src/config.c 
 	@-${MV} ${OBJECTDIR}/src/config.d ${OBJECTDIR}/src/config.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/config.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -204,7 +212,7 @@ ${OBJECTDIR}/src/i2c-tools.p1: src/i2c-tools.c  nbproject/Makefile-${CND_CONF}.m
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/i2c-tools.p1.d 
 	@${RM} ${OBJECTDIR}/src/i2c-tools.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/i2c-tools.p1  src/i2c-tools.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/i2c-tools.p1  src/i2c-tools.c 
 	@-${MV} ${OBJECTDIR}/src/i2c-tools.d ${OBJECTDIR}/src/i2c-tools.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/i2c-tools.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -212,7 +220,7 @@ ${OBJECTDIR}/src/i2c.p1: src/i2c.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/i2c.p1.d 
 	@${RM} ${OBJECTDIR}/src/i2c.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/i2c.p1  src/i2c.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/i2c.p1  src/i2c.c 
 	@-${MV} ${OBJECTDIR}/src/i2c.d ${OBJECTDIR}/src/i2c.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/i2c.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -220,7 +228,7 @@ ${OBJECTDIR}/src/interrupts.p1: src/interrupts.c  nbproject/Makefile-${CND_CONF}
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/interrupts.p1.d 
 	@${RM} ${OBJECTDIR}/src/interrupts.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/interrupts.p1  src/interrupts.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/interrupts.p1  src/interrupts.c 
 	@-${MV} ${OBJECTDIR}/src/interrupts.d ${OBJECTDIR}/src/interrupts.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/interrupts.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -228,7 +236,7 @@ ${OBJECTDIR}/src/main.p1: src/main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/main.p1.d 
 	@${RM} ${OBJECTDIR}/src/main.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/main.p1  src/main.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/main.p1  src/main.c 
 	@-${MV} ${OBJECTDIR}/src/main.d ${OBJECTDIR}/src/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -236,7 +244,7 @@ ${OBJECTDIR}/src/menuentry.p1: src/menuentry.c  nbproject/Makefile-${CND_CONF}.m
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/menuentry.p1.d 
 	@${RM} ${OBJECTDIR}/src/menuentry.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/menuentry.p1  src/menuentry.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/menuentry.p1  src/menuentry.c 
 	@-${MV} ${OBJECTDIR}/src/menuentry.d ${OBJECTDIR}/src/menuentry.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/menuentry.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -244,7 +252,7 @@ ${OBJECTDIR}/src/oscillator.p1: src/oscillator.c  nbproject/Makefile-${CND_CONF}
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/oscillator.p1.d 
 	@${RM} ${OBJECTDIR}/src/oscillator.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/oscillator.p1  src/oscillator.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/oscillator.p1  src/oscillator.c 
 	@-${MV} ${OBJECTDIR}/src/oscillator.d ${OBJECTDIR}/src/oscillator.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/oscillator.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -252,7 +260,7 @@ ${OBJECTDIR}/src/pwm.p1: src/pwm.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/pwm.p1.d 
 	@${RM} ${OBJECTDIR}/src/pwm.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/pwm.p1  src/pwm.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/pwm.p1  src/pwm.c 
 	@-${MV} ${OBJECTDIR}/src/pwm.d ${OBJECTDIR}/src/pwm.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/pwm.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -260,9 +268,17 @@ ${OBJECTDIR}/src/softpwm.p1: src/softpwm.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/softpwm.p1.d 
 	@${RM} ${OBJECTDIR}/src/softpwm.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/softpwm.p1  src/softpwm.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/softpwm.p1  src/softpwm.c 
 	@-${MV} ${OBJECTDIR}/src/softpwm.d ${OBJECTDIR}/src/softpwm.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/softpwm.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/buzzer.p1: buzzer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/buzzer.p1.d 
+	@${RM} ${OBJECTDIR}/buzzer.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/buzzer.p1  buzzer.c 
+	@-${MV} ${OBJECTDIR}/buzzer.d ${OBJECTDIR}/buzzer.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/buzzer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
@@ -277,13 +293,13 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/MasterPictronome.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/MasterPictronome.X.${IMAGE_TYPE}.map  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"        $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/MasterPictronome.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/MasterPictronome.X.${IMAGE_TYPE}.map  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"        $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/MasterPictronome.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
 	@${RM} dist/${CND_CONF}/${IMAGE_TYPE}/MasterPictronome.X.${IMAGE_TYPE}.hex 
 	
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/MasterPictronome.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/MasterPictronome.X.${IMAGE_TYPE}.map  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/MasterPictronome.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/MasterPictronome.X.${IMAGE_TYPE}.map  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/MasterPictronome.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
 	
 endif
 
@@ -303,7 +319,7 @@ endif
 # Enable dependency checking
 .dep.inc: .depcheck-impl
 
-DEPFILES=$(shell "${PATH_TO_IDE_BIN}"mplabwildcard ${POSSIBLE_DEPFILES})
+DEPFILES=$(shell mplabwildcard ${POSSIBLE_DEPFILES})
 ifneq (${DEPFILES},)
 include ${DEPFILES}
 endif

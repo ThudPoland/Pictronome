@@ -48,6 +48,7 @@
 #include "../include/systicktimer.h"
 #include "../include/buttons.h"
 #include "../include/softpwm.h"
+#include "../include/systicktimer.h"
 
 void main(void) {
     
@@ -81,18 +82,27 @@ void main(void) {
     
     __delay_ms(400);
     
-    InitSoftPWMConfiguration(&(LocalInterruptsStatus.settings), 100, 10);
+    InitSysTickHardware();
     
-    InitSoftPWMHardware();
+    LocalInterruptsStatus.timer.enabled = true;
+    
+    //InitSoftPWMConfiguration(&(LocalInterruptsStatus.settings), 100, 10);
+    
+    //InitSoftPWMHardware();
     
     mainLoop()
     {
-        //LATCbits.LATC5 = 1;
-        uint32_t value = 0;
-        value = value + 1;
-        __delay_ms(1000);
-        //LATCbits.LATC5 = 0;
-        __delay_ms(1000);
+        LATCbits.LATC5 = 1;
+        
+        Wait(&(LocalInterruptsStatus.timer), 1000);
+        
+        //uint32_t value = 0;
+        //value = value + 1;
+        
+        //__delay_ms(1000);
+        LATCbits.LATC5 = 0;
+        //__delay_ms(1000);
+        Wait(&(LocalInterruptsStatus.timer), 1000);
     }
     
 }
