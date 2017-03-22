@@ -22,6 +22,7 @@ struct InterruptsStatus
     uint8_t isKeyboardInterrupt;
     uint8_t isI2CReadyForWork;
     uint8_t isSysTickReady;
+    uint8_t isBuzzerReady;
     SoftPWMSettings settings;
     I2CProcess communicationProcess;
     SysTick timer;

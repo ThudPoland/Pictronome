@@ -17,7 +17,7 @@
         <itemPath>include/systicktimer.h</itemPath>
         <itemPath>include/pwm.h</itemPath>
         <itemPath>include/softpwm.h</itemPath>
-        <itemPath>buzzer.h</itemPath>
+        <itemPath>include/buzzer.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -39,7 +39,7 @@
         <itemPath>src/oscillator.c</itemPath>
         <itemPath>src/pwm.c</itemPath>
         <itemPath>src/softpwm.c</itemPath>
-        <itemPath>buzzer.c</itemPath>
+        <itemPath>src/buzzer.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"

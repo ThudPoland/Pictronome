@@ -1,4 +1,4 @@
-#include "buzzer.h"
+#include "../include/buzzer.h"
 
 void InitBuzzerHardware()
 {
@@ -12,18 +12,18 @@ void InitBuzzerHardware()
     
     T6CONbits.T6CKPS = BUZZER_PRESCALER4;
     T6CONbits.T6OUTPS = BUZZER_PRESCALER1;
-    T6CONbits.TMR6ON = 1;
+    //T6CONbits.TMR6ON = 1;
     
-    PIE2bits.TMR6IE = 1;
+    //PIE2bits.TMR6IE = 1;
 }
 
-void InitBuzzerPinout(struct BuzzerAlgorithmData *data, void *pin, uint8_t pinMask)
+void InitBuzzerPinout(BuzzerAlgorithmData *data, void *pin, uint8_t pinMask)
 {
     data->pointerToGPIO = pin;
     data->pinMask = pinMask;
 }
 
-void InitBuzzerData(struct BuzzerAlgorithmData *data)
+void InitBuzzerData(BuzzerAlgorithmData *data)
 {
     data->timeAccent = 3;
     data->timeNormal = 5;
@@ -41,7 +41,7 @@ void InitBuzzerData(struct BuzzerAlgorithmData *data)
     data->timeCounter = 0;
 }
 
-void ControlBuzzer(struct BuzzerAlgorithmData* data)
+void ControlBuzzer(BuzzerAlgorithmData* data)
 {
     if(++(data->ticksCounter) == data->ticksDelay && data->controlGPIO == false)
     {

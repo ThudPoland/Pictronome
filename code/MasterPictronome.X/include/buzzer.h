@@ -21,7 +21,7 @@ extern "C" {
 #define BUZZER_PRESCALER64 0x11
 #define BUZZER_PRESCALER4 0x01
 
-struct BuzzerAlgorithmData
+typedef struct
 {
     uint8_t timeAccent; 
     uint8_t timeNormal;
@@ -39,13 +39,13 @@ struct BuzzerAlgorithmData
     uint8_t pinMask;
     
     uint8_t *pointerToGPIO;
-};
+} BuzzerAlgorithmData;
 
 void InitBuzzerHardware();
-void InitBuzzerPinout(struct BuzzerAlgorithmData *data, void *pin, uint8_t pinMask);
-void InitBuzzerData(struct BuzzerAlgorithmData *data);
+void InitBuzzerPinout(BuzzerAlgorithmData *data, void *pin, uint8_t pinMask);
+void InitBuzzerData(BuzzerAlgorithmData *data);
 
-void ControlBuzzer(struct BuzzerAlgorithmData* data);
+void ControlBuzzer(BuzzerAlgorithmData* data);
 
 #ifdef	__cplusplus
 }
