@@ -14,21 +14,38 @@ extern "C" {
     
 #include <pic16f1709.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 #define BUZZER_PRESCALER1 0x00
 #define BUZZER_POSTSCALER1 0x00
 #define BUZZER_PRESCALER64 0x11
 #define BUZZER_PRESCALER4 0x01
-    
-void InitBuzzerHardware();
 
 struct BuzzerAlgorithmData
 {
-    uint8_t ticksAccent;
-    uint8_t ticksNormal;
-    uint16_t ticksTime;
-    uint16_t ticksDelay;
+    uint8_t timeAccent; 
+    uint8_t timeNormal;
+    uint8_t timeCounter;
+    
+    uint16_t soundTime; //Time of playing wave
+    uint16_t ticksDelay; //Delay between end and beggining of new wave generation
+    uint8_t metrumTicksNumber; //Number of ticks (metrum)
+    uint8_t actualMetrumTick; //Actual sound tick
+    
+    uint16_t ticksCounter;
+    uint8_t actualTicksCounter;
+    
+    bool controlGPIO;
+    uint8_t pinMask;
+    
+    uint8_t *pointerToGPIO;
 };
+
+void InitBuzzerHardware();
+void InitBuzzerPinout(struct BuzzerAlgorithmData *data, void *pin, uint8_t pinMask);
+void InitBuzzerData(struct BuzzerAlgorithmData *data);
+
+void ControlBuzzer(struct BuzzerAlgorithmData* data);
 
 #ifdef	__cplusplus
 }
