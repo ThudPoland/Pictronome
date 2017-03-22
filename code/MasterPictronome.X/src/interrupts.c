@@ -28,7 +28,7 @@
         
         MainInterruptController(&LocalInterruptsStatus);
         
-                if(PIR1bits.SSP1IF == True && SSP1STATbits.BF == False)
+        if(PIR1bits.SSP1IF == True && SSP1STATbits.BF == False)
         {
             PIR1bits.SSP1IF = false;
         }
@@ -65,6 +65,7 @@
         if(status->isSysTickReady)
         {
             IncreaseSysTick(&status->timer);
+            ControlBuzzer(&status->buzzerData);
             status->isSysTickReady = false;
         }
         

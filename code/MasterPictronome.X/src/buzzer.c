@@ -10,8 +10,12 @@ void InitBuzzerHardware()
     TRISCbits.TRISC6 = 0;
     LATCbits.LATC6 = 0;
     
-    T6CONbits.T6CKPS = BUZZER_PRESCALER4;
-    T6CONbits.T6OUTPS = BUZZER_PRESCALER1;
+    ANSELAbits.ANSA2 = 0;
+    TRISAbits.TRISA2 = 0;
+    LATAbits.LATA2 = 1;
+    
+    //T6CONbits.T6CKPS = BUZZER_PRESCALER4;
+    //T6CONbits.T6OUTPS = BUZZER_PRESCALER1;
     //T6CONbits.TMR6ON = 1;
     
     //PIE2bits.TMR6IE = 1;
@@ -25,12 +29,12 @@ void InitBuzzerPinout(BuzzerAlgorithmData *data, void *pin, uint8_t pinMask)
 
 void InitBuzzerData(BuzzerAlgorithmData *data)
 {
-    data->timeAccent = 3;
-    data->timeNormal = 5;
+    data->timeAccent = 5;
+    data->timeNormal = 10;
 
-    data->soundTime = 25;
-    data->ticksDelay = 50;
-    data->metrumTicksNumber = 2;
+    data->soundTime = 400;
+    data->ticksDelay = 1000;
+    data->metrumTicksNumber = 4;
     data->pinMask = 0;
     data->controlGPIO = false;
 

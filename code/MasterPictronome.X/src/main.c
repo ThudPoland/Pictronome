@@ -49,6 +49,7 @@
 #include "../include/buttons.h"
 #include "../include/softpwm.h"
 #include "../include/systicktimer.h"
+#include "../include/buzzer.h"
 
 void main(void) {
     
@@ -83,6 +84,10 @@ void main(void) {
     __delay_ms(400);
     
     InitSysTickHardware();
+    
+    InitBuzzerHardware();
+    InitBuzzerData(&(LocalInterruptsStatus.buzzerData));
+    InitBuzzerPinout(&(LocalInterruptsStatus.buzzerData), &LATC, 7);
     
     LocalInterruptsStatus.timer.enabled = true;
     

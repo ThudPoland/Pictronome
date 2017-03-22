@@ -11,6 +11,7 @@
 #include "i2c.h"
 #include "softpwm.h"
 #include "systicktimer.h"
+#include "buzzer.h"
 
 #ifdef	__cplusplus
 extern "C" {
@@ -23,6 +24,7 @@ struct InterruptsStatus
     uint8_t isI2CReadyForWork;
     uint8_t isSysTickReady;
     uint8_t isBuzzerReady;
+    BuzzerAlgorithmData buzzerData;
     SoftPWMSettings settings;
     I2CProcess communicationProcess;
     SysTick timer;
