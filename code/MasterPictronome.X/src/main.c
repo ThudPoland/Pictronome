@@ -97,17 +97,17 @@ void main(void) {
     
     mainLoop()
     {
-        LATCbits.LATC5 = 1;
+        //LATCbits.LATC5 = 1;
         
-        Wait(&(LocalInterruptsStatus.timer), 1000);
+        //Wait(&(LocalInterruptsStatus.timer), 1000);
         
         //uint32_t value = 0;
         //value = value + 1;
         
         //__delay_ms(1000);
-        LATCbits.LATC5 = 0;
+        //LATCbits.LATC5 = 0;
         //__delay_ms(1000);
-        Wait(&(LocalInterruptsStatus.timer), 1000);
+        //Wait(&(LocalInterruptsStatus.timer), 1000);
     }
     
 }

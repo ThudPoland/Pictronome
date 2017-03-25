@@ -18,6 +18,8 @@
         <itemPath>include/pwm.h</itemPath>
         <itemPath>include/softpwm.h</itemPath>
         <itemPath>include/buzzer.h</itemPath>
+        <itemPath>include/init.h</itemPath>
+        <itemPath>include/lcdtools.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -40,6 +42,8 @@
         <itemPath>src/pwm.c</itemPath>
         <itemPath>src/softpwm.c</itemPath>
         <itemPath>src/buzzer.c</itemPath>
+        <itemPath>src/init.c</itemPath>
+        <itemPath>src/lcdtools.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"

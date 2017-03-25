@@ -11,19 +11,21 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-
-    typedef int MenuLevel;
     
 struct MenuEntry
 {
-    MenuLevel actualMenuLevel;
-    MenuLevel nextMenuLevel;
-    void (*menuAction)();
+    struct MenuEntry *parent;
+    struct MenuEntry *leftNeighbor;
+    struct MenuEntry *rightNeighbor;  
     
-    char *text;
-    int textLength;
+    void (*firstMenuAction)();
+    void (*secondMenuAction)();
+    void (*thirdMenuAction)();
+    void (*fourthMenuAction)();
+    
+    char* firstLineContent;
+    char* secondLineContent;
 };
-
 
 #ifdef	__cplusplus
 }

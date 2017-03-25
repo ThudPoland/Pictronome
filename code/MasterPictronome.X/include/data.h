@@ -12,6 +12,7 @@
 #include "softpwm.h"
 #include "systicktimer.h"
 #include "buzzer.h"
+#include "menuentry.h"
 
 #ifdef	__cplusplus
 extern "C" {
@@ -30,7 +31,13 @@ struct InterruptsStatus
     SysTick timer;
 };
 
+struct SystemStatus
+{
+    struct MenuEntry entries[20];
+};
+
 struct InterruptsStatus LocalInterruptsStatus;
+struct SystemStatus LocalSystemStatus;
 
 #ifdef	__cplusplus
 }
