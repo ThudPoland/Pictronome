@@ -50,10 +50,14 @@
 #include "../include/softpwm.h"
 #include "../include/systicktimer.h"
 #include "../include/buzzer.h"
+#include "../include/menuentry.h"
+#include "../include/init.h"
 
 void main(void) {
     
-    const char* napis = "@Ustawienia111111";
+    EntriesInit(&(LocalSystemStatus.entries));
+    struct MenuEntry *actualEntry;
+    actualEntry = &(LocalSystemStatus.entries[0]);
     
     InitOscillator();
     
@@ -76,7 +80,7 @@ void main(void) {
     InitI2CDisplay(&(LocalInterruptsStatus.communicationProcess));
     
     
-    SendI2CData(&(LocalInterruptsStatus.communicationProcess), napis, 17, 0b00111110<<1, IgnoreErrors);
+    //SendI2CData(&(LocalInterruptsStatus.communicationProcess), napis, 17, 0b00111110<<1, IgnoreErrors);
     
     InitButtons();
    
@@ -99,15 +103,22 @@ void main(void) {
     {
         //LATCbits.LATC5 = 1;
         
-        //Wait(&(LocalInterruptsStatus.timer), 1000);
+        //SendI2CData(&(LocalInterruptsStatus.communicationProcess), napis, 10, 0b00111110<<1, IgnoreErrors);
+        
+        SendTextToFirstLine(actualEntry->firstLineContent, CONTENT_LENGTH, &LocalInterruptsStatus);
+        
+        Wait(&(LocalInterruptsStatus.timer), 1000);
         
         //uint32_t value = 0;
         //value = value + 1;
         
+        //SendTextToFirstLine(napis, 10, &(LocalInterruptsStatus.communicationProcess));
+        ClearDisplay(&(LocalInterruptsStatus.communicationProcess));
+        
         //__delay_ms(1000);
         //LATCbits.LATC5 = 0;
         //__delay_ms(1000);
-        //Wait(&(LocalInterruptsStatus.timer), 1000);
+        Wait(&(LocalInterruptsStatus.timer), 1000);
     }
     
 }

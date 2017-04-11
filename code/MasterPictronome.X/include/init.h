@@ -14,9 +14,11 @@ extern "C" {
 
 #include "data.h"
 
-void EntriesInit(struct SystemStatus* status);
+void EntriesInit(struct SystemUI* status);
+void NavigateLeft(void* object, void* parameter);
+void NavigateRight(void* object, void* parameter);
 
-//List of const chars:
+#define CONTENT_LENGTH 16
 const char* toggleMetronomeOnText = "    Turn on     ";
 const char* toggleMetronomeOffText = "    Turn off    ";
 const char* metrumText = "     Metrum     ";

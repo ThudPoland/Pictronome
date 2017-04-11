@@ -21,6 +21,7 @@
         <itemPath>include/init.h</itemPath>
         <itemPath>include/lcdtools.h</itemPath>
       </logicalFolder>
+      <itemPath>include/buttonstruct.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

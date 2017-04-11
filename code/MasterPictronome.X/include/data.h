@@ -8,17 +8,20 @@
 #ifndef DATA_H
 #define	DATA_H
 
+#include "stdint.h"
 #include "i2c.h"
 #include "softpwm.h"
 #include "systicktimer.h"
 #include "buzzer.h"
 #include "menuentry.h"
+#include "buttons.h"
+#include "buttonstruct.h"
 
 #ifdef	__cplusplus
 extern "C" {
 #endif
-
-struct InterruptsStatus
+    
+__pack struct SystemStatus
 {
     uint8_t isSoftwarePWMInterrupt;
     uint8_t isKeyboardInterrupt;
@@ -29,15 +32,19 @@ struct InterruptsStatus
     SoftPWMSettings settings;
     I2CProcess communicationProcess;
     SysTick timer;
+    ButtonFlags flags;
+    
+    uint8_t buffer[21];
 };
 
-struct SystemStatus
+__pack struct SystemUI
 {
+    uint8_t numberOfEntries;
     struct MenuEntry entries[20];
 };
 
-struct InterruptsStatus LocalInterruptsStatus;
-struct SystemStatus LocalSystemStatus;
+struct SystemStatus LocalInterruptsStatus;
+struct SystemUI LocalSystemStatus;
 
 #ifdef	__cplusplus
 }

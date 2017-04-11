@@ -10,17 +10,19 @@
 
 #include <xc.h>
 #include <pic16f1709.h>
+#include <stdint.h>
 
 #include "data.h"
 #include "definitions.h"
 #include "i2c.h"
+#include "buttonstruct.h"
 
 #ifdef	__cplusplus
 extern "C" {
 #endif
     
 void InitButtons();
-void ButtonInterruptFunction();
+void ButtonInterruptFunction(ButtonFlags* flags);
 
 
 #ifdef	__cplusplus

@@ -12,20 +12,26 @@
 extern "C" {
 #endif
     
+#include <stdint.h>
+    
 struct MenuEntry
 {
     struct MenuEntry *parent;
     struct MenuEntry *leftNeighbor;
     struct MenuEntry *rightNeighbor;  
     
-    void (*firstMenuAction)();
-    void (*secondMenuAction)();
-    void (*thirdMenuAction)();
-    void (*fourthMenuAction)();
+    void (*firstMenuAction)(void* object, void* parameter);
+    void (*secondMenuAction)(void* object, void* parameter);
+    void (*thirdMenuAction)(void* object, void* parameter);
+    void (*fourthMenuAction)(void* object, void* parameter);
     
     char* firstLineContent;
     char* secondLineContent;
+    
+    uint8_t firstLineContentLength;
+    uint8_t secondLineContentLength;
 };
+
 
 #ifdef	__cplusplus
 }

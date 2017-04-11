@@ -29,7 +29,7 @@ extern "C" {
 #endif
 
 void interrupt ISRInterruptController();
-void MainInterruptController(struct InterruptsStatus* status);
+void MainInterruptController(struct SystemStatus* status);
 //Interrupt register:
 //bit 0 -> I2CProcessing
 //bit 1 ->

@@ -53,7 +53,7 @@
         }
     }
     
-    void MainInterruptController(struct InterruptsStatus* status)
+    void MainInterruptController(struct SystemStatus* status)
     {
         bool isI2CReady = status->communicationProcess.isReadyForNextStep;
         
@@ -71,7 +71,7 @@
         
         if(status->isKeyboardInterrupt == true)
         {
-            ButtonInterruptFunction();
+            ButtonInterruptFunction(&status->flags);
             status->isKeyboardInterrupt = false;
         }
         

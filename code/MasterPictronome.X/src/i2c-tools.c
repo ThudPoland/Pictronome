@@ -2,7 +2,7 @@
 
 void InitI2CDisplay(struct I2CProcess *process)
 {
-    uint8_t table[16] = {
+    const uint8_t table[16] = {
     0,
     0x38,
     0,
@@ -30,4 +30,33 @@ void InitI2CDisplay(struct I2CProcess *process)
     }
     
     __delay_ms(200);
+}
+
+void SendTextToFirstLine(char* text, int length, struct SystemStatus* process)
+{
+    volatile char* actualText = "@  ff            ";
+    process->buffer[0] = '@';
+    
+    if(length > 20) return;
+    
+    for(int x = 0; x < length; x++)
+    {
+        process->buffer[x + 1] = text[x];
+    }
+    
+    SendI2CData(&(process->communicationProcess), &(process->buffer)[0], length+1, 0b00111110<<1, IgnoreErrors);
+    
+    _delay(200);
+}
+
+void ClearDisplay(struct I2CProcess* process)
+{
+    const  uint8_t clearTable[2] = {
+        0,
+        0x01,
+    };
+    
+    _delay(27);
+    SendI2CData(process, &clearTable[0], 2, 0b00111110<<1, IgnoreErrors);
+    _delay(27);
 }

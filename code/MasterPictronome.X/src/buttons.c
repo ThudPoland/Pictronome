@@ -56,28 +56,28 @@ void InitButtons()
     IOCBNbits.IOCBN6 = 1;
 }
 
-void ButtonInterruptFunction()
+void ButtonInterruptFunction(ButtonFlags* flags)
 {
     if(IOCCFbits.IOCCF1 == 1)
     {
-        Action1();
+        flags->button1Flag = 1;
     }
     if(IOCCFbits.IOCCF2 == 1)
     {
-        Action2();
+        flags->button2Flag = 1;
     }
     
     if(IOCBFbits.IOCBF4 == 1)
     {
-        Action3();
+        flags->button3Flag = 1;
     }
     if(IOCBFbits.IOCBF5 == 1)
     {
-        Action4();
+        flags->button4Flag = 1;
     }
     if(IOCBFbits.IOCBF6 == 1)
     {
-        Action5();
+        flags->button5Flag = 1;
     }
     
     IOCCF = 0;
