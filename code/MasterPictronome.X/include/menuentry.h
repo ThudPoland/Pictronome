@@ -13,6 +13,8 @@ extern "C" {
 #endif
     
 #include <stdint.h>
+#include <stdbool.h>
+#include <stdio.h>
     
 struct MenuEntry
 {
@@ -32,6 +34,10 @@ struct MenuEntry
     uint8_t secondLineContentLength;
 };
 
+bool ExecuteFirstAction(struct MenuEntry* entry);
+bool ExecuteSecondAction(struct MenuEntry* entry);
+bool ExecuteThirdAction(struct MenuEntry* entry);
+bool ExecuteFourthAction(struct MenuEntry* entry);
 
 #ifdef	__cplusplus
 }
