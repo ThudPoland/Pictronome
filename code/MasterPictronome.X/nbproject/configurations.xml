@@ -20,6 +20,8 @@
         <itemPath>include/buzzer.h</itemPath>
         <itemPath>include/init.h</itemPath>
         <itemPath>include/lcdtools.h</itemPath>
+        <itemPath>include/buttonstruct.h</itemPath>
+        <itemPath>include/navigation.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -44,6 +46,7 @@
         <itemPath>src/buzzer.c</itemPath>
         <itemPath>src/init.c</itemPath>
         <itemPath>src/lcdtools.c</itemPath>
+        <itemPath>src/navigation.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"

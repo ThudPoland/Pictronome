@@ -20,7 +20,6 @@ void EntriesInit(struct SystemUI* status)
     status->entries[2].secondMenuAction = NavigateRight;
     
     status->entries[3].leftNeighbor = &status->entries[2];
-    status->entries[3].rightNeighbor = &status->entries[4];
     status->entries[3].firstLineContent = brightnessText;
     status->entries[3].firstMenuAction = NavigateLeft;
     status->entries[3].secondMenuAction = NavigateRight;
@@ -28,16 +27,16 @@ void EntriesInit(struct SystemUI* status)
 
 void NavigateLeft(void* object, void* parameter)
 {
-    struct SystemUI* status = (struct SystemUI*)object;
-    struct MenuEntry* entry = (struct MenuEntry*)parameter;
+    struct SystemUI* status = (struct SystemUI*)parameter;
+    struct MenuEntry* entry = (struct MenuEntry*)object;
     
     if(entry->leftNeighbor != 0) entry = entry->leftNeighbor;
 }
 
 void NavigateRight(void* object, void* parameter)
 {
-    struct SystemUI* status = (struct SystemUI*)object;
-    struct MenuEntry* entry = (struct MenuEntry*)parameter;
+    struct SystemUI* status = (struct SystemUI*)parameter;
+    struct MenuEntry* entry = (struct MenuEntry*)object;
     
     if(entry->rightNeighbor != 0) entry = entry->rightNeighbor;
 }
