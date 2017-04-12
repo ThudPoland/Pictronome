@@ -21,7 +21,7 @@
 extern "C" {
 #endif
     
-__pack struct SystemStatus
+struct SystemStatus
 {
     uint8_t isSoftwarePWMInterrupt;
     uint8_t isKeyboardInterrupt;
@@ -37,7 +37,7 @@ __pack struct SystemStatus
     uint8_t buffer[21];
 };
 
-__pack struct SystemUI
+struct SystemUI
 {
     uint8_t numberOfEntries;
     struct MenuEntry entries[20];

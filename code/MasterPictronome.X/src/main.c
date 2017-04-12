@@ -55,7 +55,7 @@
 
 void main(void) {
     
-    EntriesInit(&(LocalSystemStatus.entries));
+    EntriesInit(&(LocalSystemStatus));
     struct MenuEntry *actualEntry;
     actualEntry = &(LocalSystemStatus.entries[0]);
     
@@ -101,6 +101,7 @@ void main(void) {
     
     mainLoop()
     {
+        
         //LATCbits.LATC5 = 1;
         
         //SendI2CData(&(LocalInterruptsStatus.communicationProcess), napis, 10, 0b00111110<<1, IgnoreErrors);

@@ -45,8 +45,6 @@ void SendTextToFirstLine(char* text, int length, struct SystemStatus* process)
     }
     
     SendI2CData(&(process->communicationProcess), &(process->buffer)[0], length+1, 0b00111110<<1, IgnoreErrors);
-    
-    _delay(200);
 }
 
 void ClearDisplay(struct I2CProcess* process)
