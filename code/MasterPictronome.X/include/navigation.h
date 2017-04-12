@@ -16,7 +16,7 @@
 extern "C" {
 #endif
 
-bool Navigate(struct MenuEntry *entry, ButtonFlags* flags);
+bool Navigate(struct MenuEntry **entry, ButtonFlags* flags);
 
 
 #ifdef	__cplusplus

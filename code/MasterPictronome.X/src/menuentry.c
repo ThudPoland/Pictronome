@@ -1,37 +1,37 @@
 #include "../include/menuentry.h"
 
-bool ExecuteFirstAction(struct MenuEntry* entry)
+bool ExecuteFirstAction(struct MenuEntry** entry)
 {
-    if(entry->firstMenuAction != 0)
+    if((*entry)->firstMenuAction != 0)
     {
-        entry->firstMenuAction(entry, NULL);
+        (*entry)->firstMenuAction(entry, NULL);
         return true;
     }
     return false;
 }
-bool ExecuteSecondAction(struct MenuEntry* entry)
+bool ExecuteSecondAction(struct MenuEntry** entry)
 {
-    if(entry->secondMenuAction != 0)
+    if((*entry)->secondMenuAction != 0)
     {
-        entry->secondMenuAction(entry, NULL);
+        (*entry)->secondMenuAction(entry, NULL);
         return true;
     }
     return false;
 }
-bool ExecuteThirdAction(struct MenuEntry* entry)
+bool ExecuteThirdAction(struct MenuEntry** entry)
 {
-    if(entry->thirdMenuAction != 0)
+    if((*entry)->thirdMenuAction != 0)
     {
-        entry->thirdMenuAction(entry, NULL);
+        (*entry)->thirdMenuAction(entry, NULL);
         return true;
     }
     return false;
 }
-bool ExecuteFourthAction(struct MenuEntry* entry)
+bool ExecuteFourthAction(struct MenuEntry** entry)
 {
-        if(entry->fourthMenuAction != 0)
+        if((*entry)->fourthMenuAction != 0)
     {
-        entry->fourthMenuAction(entry, NULL);
+        (*entry)->fourthMenuAction(entry, NULL);
         return true;
     }
     return false;

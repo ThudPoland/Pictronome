@@ -52,6 +52,7 @@
 #include "../include/buzzer.h"
 #include "../include/menuentry.h"
 #include "../include/init.h"
+#include "../include/navigation.h"
 
 void main(void) {
     
@@ -101,7 +102,7 @@ void main(void) {
     
     mainLoop()
     {
-        
+        Navigate(&actualEntry, &(LocalInterruptsStatus.flags));   
         //LATCbits.LATC5 = 1;
         
         //SendI2CData(&(LocalInterruptsStatus.communicationProcess), napis, 10, 0b00111110<<1, IgnoreErrors);

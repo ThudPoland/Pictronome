@@ -60,24 +60,24 @@ void ButtonInterruptFunction(ButtonFlags* flags)
 {
     if(IOCCFbits.IOCCF1 == 1)
     {
-        flags->button1Flag = 1;
+        flags->button5Flag = 1;
     }
     if(IOCCFbits.IOCCF2 == 1)
     {
-        flags->button2Flag = 1;
+        flags->button1Flag = 1;
     }
     
     if(IOCBFbits.IOCBF4 == 1)
     {
-        flags->button3Flag = 1;
+        flags->button2Flag = 1;
     }
     if(IOCBFbits.IOCBF5 == 1)
     {
-        flags->button4Flag = 1;
+        flags->button3Flag = 1;
     }
     if(IOCBFbits.IOCBF6 == 1)
     {
-        flags->button5Flag = 1;
+        flags->button4Flag = 1;
     }
     
     IOCCF = 0;

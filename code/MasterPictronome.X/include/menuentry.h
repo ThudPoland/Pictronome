@@ -22,10 +22,10 @@ struct MenuEntry
     struct MenuEntry *leftNeighbor;
     struct MenuEntry *rightNeighbor;  
     
-    void (*firstMenuAction)(void* object, void* parameter);
-    void (*secondMenuAction)(void* object, void* parameter);
-    void (*thirdMenuAction)(void* object, void* parameter);
-    void (*fourthMenuAction)(void* object, void* parameter);
+    bool (*firstMenuAction)(void** object, void* parameter);
+    bool (*secondMenuAction)(void** object, void* parameter);
+    bool (*thirdMenuAction)(void** object, void* parameter);
+    bool (*fourthMenuAction)(void** object, void* parameter);
     
     char* firstLineContent;
     char* secondLineContent;
@@ -34,10 +34,10 @@ struct MenuEntry
     uint8_t secondLineContentLength;
 };
 
-bool ExecuteFirstAction(struct MenuEntry* entry);
-bool ExecuteSecondAction(struct MenuEntry* entry);
-bool ExecuteThirdAction(struct MenuEntry* entry);
-bool ExecuteFourthAction(struct MenuEntry* entry);
+bool ExecuteFirstAction(struct MenuEntry** entry);
+bool ExecuteSecondAction(struct MenuEntry** entry);
+bool ExecuteThirdAction(struct MenuEntry** entry);
+bool ExecuteFourthAction(struct MenuEntry** entry);
 
 #ifdef	__cplusplus
 }
