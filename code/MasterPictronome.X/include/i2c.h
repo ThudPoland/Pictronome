@@ -55,6 +55,8 @@ typedef struct
     
     //Error info
     uint8_t errorCounter;
+    
+    uint8_t buffer[21];
 } I2CProcess;
     
 void InitI2CIO();

@@ -107,7 +107,7 @@ void main(void) {
         
         //SendI2CData(&(LocalInterruptsStatus.communicationProcess), napis, 10, 0b00111110<<1, IgnoreErrors);
         
-        SendTextToFirstLine(actualEntry->firstLineContent, CONTENT_LENGTH, &LocalInterruptsStatus);
+        SendTextToFirstLine(actualEntry->firstLineContent, CONTENT_LENGTH, &(LocalInterruptsStatus.communicationProcess));
         
         Wait(&(LocalInterruptsStatus.timer), 1000);
         

@@ -33,8 +33,6 @@ struct SystemStatus
     I2CProcess communicationProcess;
     SysTick timer;
     ButtonFlags flags;
-    
-    uint8_t buffer[21];
 };
 
 struct SystemUI

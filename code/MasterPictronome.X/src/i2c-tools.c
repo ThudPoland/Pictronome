@@ -32,9 +32,8 @@ void InitI2CDisplay(struct I2CProcess *process)
     __delay_ms(200);
 }
 
-void SendTextToFirstLine(char* text, int length, struct SystemStatus* process)
+void SendTextToFirstLine(char* text, int length, I2CProcess* process)
 {
-    volatile char* actualText = "@  ff            ";
     process->buffer[0] = '@';
     
     if(length > 20) return;
@@ -44,7 +43,7 @@ void SendTextToFirstLine(char* text, int length, struct SystemStatus* process)
         process->buffer[x + 1] = text[x];
     }
     
-    SendI2CData(&(process->communicationProcess), &(process->buffer)[0], length+1, 0b00111110<<1, IgnoreErrors);
+    SendI2CData(process, process->buffer, length+1, 0b00111110<<1, IgnoreErrors);
 }
 
 void ClearDisplay(struct I2CProcess* process)
