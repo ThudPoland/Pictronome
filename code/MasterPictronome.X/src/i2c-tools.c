@@ -67,6 +67,6 @@ void ClearDisplay(struct I2CProcess* process)
     };
     
     _delay(27);
-    SendI2CData(process, &clearTable[0], 2, 0b00111110<<1, IgnoreErrors);
+    SendDataToFirstLine(clearTable, 2, process);
     _delay(27);
 }
