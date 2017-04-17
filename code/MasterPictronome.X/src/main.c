@@ -107,15 +107,20 @@ void main(void) {
         
         //SendI2CData(&(LocalInterruptsStatus.communicationProcess), napis, 10, 0b00111110<<1, IgnoreErrors);
         
+        //SendTextToFirstLine(actualEntry->firstLineContent, CONTENT_LENGTH, &(LocalInterruptsStatus.communicationProcess));
+        Wait(&(LocalInterruptsStatus.timer), 200);
+        SetSecondLine(&(LocalInterruptsStatus.communicationProcess));
+        Wait(&(LocalInterruptsStatus.timer), 200);
         SendTextToFirstLine(actualEntry->firstLineContent, CONTENT_LENGTH, &(LocalInterruptsStatus.communicationProcess));
+        Wait(&(LocalInterruptsStatus.timer), 200);
         
-        Wait(&(LocalInterruptsStatus.timer), 1000);
+        Wait(&(LocalInterruptsStatus.timer), 2000);
         
         //uint32_t value = 0;
         //value = value + 1;
         
         //SendTextToFirstLine(napis, 10, &(LocalInterruptsStatus.communicationProcess));
-        ClearDisplay(&(LocalInterruptsStatus.communicationProcess));
+        //ClearDisplay(&(LocalInterruptsStatus.communicationProcess));
         
         //__delay_ms(1000);
         //LATCbits.LATC5 = 0;

@@ -70,3 +70,15 @@ void ClearDisplay(struct I2CProcess* process)
     SendDataToFirstLine(clearTable, 2, process);
     _delay(27);
 }
+
+void SetSecondLine(struct I2CProcess* process)
+{
+    const uint8_t secondLineTable[2] = {
+        0,
+        0xC0,
+    };
+    
+    _delay(100);
+    SendDataToFirstLine(secondLineTable, 2, process);
+    _delay(100);
+}
