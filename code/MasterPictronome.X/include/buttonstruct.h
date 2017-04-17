@@ -19,6 +19,7 @@ extern "C" {
         uint8_t button3Flag : 1;
         uint8_t button4Flag : 1;
         uint8_t button5Flag : 1;
+        uint8_t interfaceNeedUpdate : 1;
     } ButtonFlags;
 
 

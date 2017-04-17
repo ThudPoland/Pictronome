@@ -27,4 +27,6 @@ bool Navigate(struct MenuEntry **entry, ButtonFlags* flags)
         flags->button5Flag = 0;
         return ExecuteFourthAction(entry);
     }
+    
+    return false;
 }

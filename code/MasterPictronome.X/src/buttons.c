@@ -7,8 +7,6 @@ void Action1()
 
 void Action2()
 {
-    //SendI2CData(&(LocalInterruptsStatus.communicationProcess), "@b", 2, 0b00111110<<1, IgnoreErrors);
-    
     LocalInterruptsStatus.settings.TriggerTick += 10;
     
     if(LocalInterruptsStatus.settings.TriggerTick >= LocalInterruptsStatus.settings.Period) LocalInterruptsStatus.settings.TriggerTick = LocalInterruptsStatus.settings.Period;
@@ -28,7 +26,6 @@ void Action5()
 {
     LocalInterruptsStatus.settings.TriggerTick -= 10;
     if(LocalInterruptsStatus.settings.TriggerTick >= LocalInterruptsStatus.settings.Period) LocalInterruptsStatus.settings.TriggerTick = 0;
-    //SendI2CData(&(LocalInterruptsStatus.communicationProcess), "@e", 2, 0b00111110<<1, IgnoreErrors);
 }
 
 void InitButtons()
@@ -80,6 +77,7 @@ void ButtonInterruptFunction(ButtonFlags* flags)
         flags->button4Flag = 1;
     }
     
+    flags->interfaceNeedUpdate = 1;
     IOCCF = 0;
     IOCBF = 0;
 }
