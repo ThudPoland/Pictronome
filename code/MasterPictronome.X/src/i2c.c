@@ -70,7 +70,6 @@ bool SendI2CData(I2CProcess* process, uint8_t *data, uint8_t dataLength, uint8_t
     process->tableCounter = 0;
     process->address = address;
     process->length = dataLength;
-    process->dataPointer = data;
     process->error = NoError;
     process->behaviour = behaviour;
     process->errorCounter+ = 0;
@@ -109,7 +108,10 @@ void I2CSendAddress(I2CProcess* process)
 
 void I2CSendNextByte(I2CProcess* process)
 {
-    SSP1BUFbits.BUF = process->dataPointer[process->tableCounter];
+    
+    uint8_t* pointer = (*process).buffer;
+    
+    SSP1BUFbits.BUF = pointer[process->tableCounter];
     
     process->tableCounter++;
 }

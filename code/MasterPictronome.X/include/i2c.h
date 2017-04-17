@@ -51,7 +51,6 @@ typedef struct
     
     //ProcessedData
     uint8_t address;
-    uint8_t *dataPointer;
     
     //Error info
     uint8_t errorCounter;

@@ -25,11 +25,24 @@ void InitI2CDisplay(struct I2CProcess *process)
     //SendI2CData(&(LocalInterruptsStatus.communicationProcess), table, 16, 0b00111110<<1, IgnoreErrors);
     for(unsigned int Counter = 0; Counter < 8; Counter++)
     {
-        SendI2CData(process, &table[Counter*2], 2, 0b00111110<<1, IgnoreErrors);
+        //SendI2CData(process, &table[Counter*2], 2, 0b00111110<<1, IgnoreErrors);
+        SendDataToFirstLine(&table[Counter*2], 2, process);
         __delay_ms(100);
     }
     
     __delay_ms(200);
+}
+
+void SendDataToFirstLine(char* text, int length, I2CProcess* process)
+{   
+    if(length > 20) return;
+    
+    for(int x = 0; x < length; x++)
+    {
+        process->buffer[x] = text[x];
+    }
+    
+    SendI2CData(process, process->buffer, length+1, 0b00111110<<1, IgnoreErrors);
 }
 
 void SendTextToFirstLine(char* text, int length, I2CProcess* process)
