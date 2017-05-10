@@ -45,7 +45,7 @@ void SendData(char* text, int length, I2CProcess* process)
     SendI2CData(process, process->buffer, length, 0b00111110<<1, IgnoreErrors);
 }
 
-void SendTextToFirstLine(char* text, int length, I2CProcess* process)
+void SendText(char* text, int length, I2CProcess* process)
 {
     if(text == 0) return;
     process->buffer[0] = '@';

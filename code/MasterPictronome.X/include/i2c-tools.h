@@ -17,7 +17,7 @@ extern "C" {
 #include "data.h"
 
 void InitI2CDisplay(struct I2CProcess *process);
-void SendTextToFirstLine(char* text, int length, I2CProcess* process);
+void SendText(char* text, int length, I2CProcess* process);
 void SendData(char* text, int length, I2CProcess* process);
 void ClearDisplay(struct I2CProcess* process);
 void SetSecondLine(struct I2CProcess* process);

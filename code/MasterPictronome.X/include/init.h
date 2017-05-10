@@ -17,6 +17,8 @@ extern "C" {
 void EntriesInit(struct SystemUI* status);
 void NavigateLeft(void** object, void* parameter);
 void NavigateRight(void** object, void* parameter);
+void NavigateDown(void** object, void* parameter);
+void NavigateUp(void** object, void* parameter);
 
 #define CONTENT_LENGTH 16
 const char* toggleMetronomeOnText = "    Turn on     ";

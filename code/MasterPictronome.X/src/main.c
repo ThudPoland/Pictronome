@@ -95,7 +95,6 @@ void main(void) {
     InitBuzzerPinout(&(LocalInterruptsStatus.buzzerData), &LATC, 7);
     
     LocalInterruptsStatus.timer.enabled = true;
-    
     //InitSoftPWMConfiguration(&(LocalInterruptsStatus.settings), 100, 10);
     
     //InitSoftPWMHardware();
