@@ -40,3 +40,11 @@ void NavigateRight(void** object, void* parameter)
     
     if(entry->rightNeighbor != 0) (*object) = entry->rightNeighbor;
 }
+
+void NavigateDown(void** object, void* parameter)
+{
+    struct SystemUI* status = (struct SystemUI*)parameter;
+    struct MenuEntry* entry = *object;
+    
+    if(entry->parent != 0) (*object) = entry->parent;
+}

@@ -30,3 +30,11 @@ bool Navigate(struct MenuEntry **entry, ButtonFlags* flags)
     
     return false;
 }
+
+void DisplayMenu(struct MenuEntry *entry, struct SystemStatus *system)
+{
+    ClearDisplay(&(system->communicationProcess));
+    SendTextToFirstLine(entry->firstLineContent, CONTENT_LENGTH, &(system->communicationProcess));
+    SetSecondLine(&(system->communicationProcess));
+    SendTextToFirstLine(entry->secondLineContent, CONTENT_LENGTH, &(system->communicationProcess));
+}
