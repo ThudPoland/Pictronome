@@ -29,7 +29,7 @@ bool ExecuteThirdAction(struct MenuEntry** entry)
 }
 bool ExecuteFourthAction(struct MenuEntry** entry)
 {
-        if((*entry)->fourthMenuAction != 0)
+    if((*entry)->fourthMenuAction != 0)
     {
         (*entry)->fourthMenuAction(entry, NULL);
         return true;
