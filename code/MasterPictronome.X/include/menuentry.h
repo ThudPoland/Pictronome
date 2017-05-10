@@ -18,6 +18,7 @@ extern "C" {
     
 struct MenuEntry
 {
+    struct MenuEntry *child;
     struct MenuEntry *parent;
     struct MenuEntry *leftNeighbor;
     struct MenuEntry *rightNeighbor;  

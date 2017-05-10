@@ -11,12 +11,15 @@
 #include "stdbool.h"
 #include "menuentry.h"
 #include "buttonstruct.h"
+#include "init.h"
+#include "i2c-tools.h"
 
 #ifdef	__cplusplus
 extern "C" {
 #endif
 
 bool Navigate(struct MenuEntry **entry, ButtonFlags* flags);
+void DisplayMenu(struct MenuEntry *entry, struct SystemStatus *system);
 
 
 #ifdef	__cplusplus

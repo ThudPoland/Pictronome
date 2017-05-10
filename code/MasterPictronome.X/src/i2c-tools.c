@@ -26,14 +26,14 @@ void InitI2CDisplay(struct I2CProcess *process)
     for(unsigned int Counter = 0; Counter < 8; Counter++)
     {
         //SendI2CData(process, &table[Counter*2], 2, 0b00111110<<1, IgnoreErrors);
-        SendDataToFirstLine(&table[Counter*2], 2, process);
+        SendData(&table[Counter*2], 2, process);
         __delay_ms(100);
     }
     
     __delay_ms(200);
 }
 
-void SendDataToFirstLine(char* text, int length, I2CProcess* process)
+void SendData(char* text, int length, I2CProcess* process)
 {   
     if(length > 20) return;
     
@@ -42,11 +42,12 @@ void SendDataToFirstLine(char* text, int length, I2CProcess* process)
         process->buffer[x] = text[x];
     }
     
-    SendI2CData(process, process->buffer, length+1, 0b00111110<<1, IgnoreErrors);
+    SendI2CData(process, process->buffer, length, 0b00111110<<1, IgnoreErrors);
 }
 
 void SendTextToFirstLine(char* text, int length, I2CProcess* process)
 {
+    if(text == 0) return;
     process->buffer[0] = '@';
     
     if(length > 20) return;
@@ -61,12 +62,24 @@ void SendTextToFirstLine(char* text, int length, I2CProcess* process)
 
 void ClearDisplay(struct I2CProcess* process)
 {
-    const  uint8_t clearTable[2] = {
+    const uint8_t clearTable[2] = {
         0,
         0x01,
     };
     
-    _delay(27);
-    SendDataToFirstLine(clearTable, 2, process);
-    _delay(27);
+    _delay(300);
+    SendData(clearTable, 2, process);
+    _delay(300);
+}
+
+void SetSecondLine(struct I2CProcess* process)
+{
+    const uint8_t secondLineTable[2] = {
+        0,
+        0xC0,
+    };
+    
+    _delay(300);
+    SendData(secondLineTable, 2, process);
+    _delay(300);
 }

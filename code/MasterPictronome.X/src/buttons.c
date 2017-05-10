@@ -1,33 +1,5 @@
 #include "../include/buttons.h"
 
-void Action1()
-{
-    SendI2CData(&(LocalInterruptsStatus.communicationProcess), "@a", 2, 0b00111110<<1, IgnoreErrors);
-}
-
-void Action2()
-{
-    LocalInterruptsStatus.settings.TriggerTick += 10;
-    
-    if(LocalInterruptsStatus.settings.TriggerTick >= LocalInterruptsStatus.settings.Period) LocalInterruptsStatus.settings.TriggerTick = LocalInterruptsStatus.settings.Period;
-}
-
-void Action3()
-{
-    SendI2CData(&(LocalInterruptsStatus.communicationProcess), "@c", 2, 0b00111110<<1, IgnoreErrors);
-}
-
-void Action4()
-{
-    SendI2CData(&(LocalInterruptsStatus.communicationProcess), "@d", 2, 0b00111110<<1, IgnoreErrors);
-}
-
-void Action5()
-{
-    LocalInterruptsStatus.settings.TriggerTick -= 10;
-    if(LocalInterruptsStatus.settings.TriggerTick >= LocalInterruptsStatus.settings.Period) LocalInterruptsStatus.settings.TriggerTick = 0;
-}
-
 void InitButtons()
 {
     INTCONbits.IOCIE = 1;
