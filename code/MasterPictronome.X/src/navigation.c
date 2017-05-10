@@ -34,7 +34,7 @@ bool Navigate(struct MenuEntry **entry, ButtonFlags* flags)
 void DisplayMenu(struct MenuEntry *entry, struct SystemStatus *system)
 {
     ClearDisplay(&(system->communicationProcess));
-    SendTextToFirstLine(entry->firstLineContent, CONTENT_LENGTH, &(system->communicationProcess));
+    SendText(entry->firstLineContent, CONTENT_LENGTH, &(system->communicationProcess));
     SetSecondLine(&(system->communicationProcess));
-    SendTextToFirstLine(entry->secondLineContent, CONTENT_LENGTH, &(system->communicationProcess));
+    SendText(entry->secondLineContent, CONTENT_LENGTH, &(system->communicationProcess));
 }

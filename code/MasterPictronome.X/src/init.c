@@ -48,3 +48,11 @@ void NavigateDown(void** object, void* parameter)
     
     if(entry->parent != 0) (*object) = entry->parent;
 }
+
+void NavigateUp(void** object, void* parameter)
+{
+    struct SystemUI* status = (struct SystemUI*)parameter;
+    struct MenuEntry* entry = *object;
+    
+    if(entry->child != 0) (*object) = entry->child;
+}
