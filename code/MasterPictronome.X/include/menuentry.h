@@ -23,16 +23,15 @@ struct MenuEntry
     struct MenuEntry *leftNeighbor;
     struct MenuEntry *rightNeighbor;  
     
-    bool (*firstMenuAction)(void** object, void* parameter);
-    bool (*secondMenuAction)(void** object, void* parameter);
-    bool (*thirdMenuAction)(void** object, void* parameter);
-    bool (*fourthMenuAction)(void** object, void* parameter);
+    bool (*firstMenuAction)(void** object);
+    bool (*secondMenuAction)(void** object);
+    bool (*thirdMenuAction)(void** object);
+    bool (*fourthMenuAction)(void** object);
     
     char* firstLineContent;
     char* secondLineContent;
     
-    uint8_t firstLineContentLength;
-    uint8_t secondLineContentLength;
+    void* dataSource;
 };
 
 bool ExecuteFirstAction(struct MenuEntry** entry);
