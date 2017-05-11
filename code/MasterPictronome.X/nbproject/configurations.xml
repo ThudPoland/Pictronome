@@ -23,6 +23,7 @@
         <itemPath>include/buttonstruct.h</itemPath>
         <itemPath>include/navigation.h</itemPath>
         <itemPath>include/ui.h</itemPath>
+        <itemPath>include/utils.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -50,6 +51,8 @@
         <itemPath>src/navigation.c</itemPath>
         <itemPath>src/delegate.c</itemPath>
         <itemPath>src/ui.c</itemPath>
+        <itemPath>src/utils.c</itemPath>
+        <itemPath>src/data.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"

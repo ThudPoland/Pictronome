@@ -23,11 +23,11 @@ extern "C" {
     
 struct SystemStatus
 {
-    uint8_t isSoftwarePWMInterrupt;
-    uint8_t isKeyboardInterrupt;
-    uint8_t isI2CReadyForWork;
-    uint8_t isSysTickReady;
-    uint8_t isBuzzerReady;
+    uint8_t isSoftwarePWMInterrupt : 1;
+    uint8_t isKeyboardInterrupt : 1;
+    uint8_t isI2CReadyForWork : 1;
+    uint8_t isSysTickReady : 1;
+    uint8_t isBuzzerReady : 1;
     BuzzerAlgorithmData buzzerData;
     SoftPWMSettings settings;
     I2CProcess communicationProcess;
@@ -41,8 +41,22 @@ struct SystemUI
     struct MenuEntry entries[20];
 };
 
+struct DataSource
+{
+    BuzzerAlgorithmData *buzzer;
+};
+
 struct SystemStatus LocalInterruptsStatus;
-struct SystemUI LocalSystemStatus;
+struct SystemUI SystemUIStatus;
+struct DataSource LocalDataSource;
+
+const char* toggleMetronomeOnText = "    Turn on     ";
+const char* toggleMetronomeOffText = "    Turn off    ";
+const char* metrumText = "     Metrum     ";
+const char* tempoText = "     Tempo      ";
+const char* brightnessText = "   Brightness   ";
+
+void InitDataSource(struct DataSource** localDataSource, struct SystemStatus *localInterruptStatus);
 
 #ifdef	__cplusplus
 }

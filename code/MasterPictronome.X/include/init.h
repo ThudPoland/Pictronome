@@ -14,18 +14,13 @@ extern "C" {
 
 #include "data.h"
 
-void EntriesInit(struct SystemUI* status);
+void EntriesInit(struct SystemUI* status, struct DataSource *source);
 void NavigateLeft(void** object);
 void NavigateRight(void** object);
 void NavigateDown(void** object);
 void NavigateUp(void** object);
 
 #define CONTENT_LENGTH 16
-const char* toggleMetronomeOnText = "    Turn on     ";
-const char* toggleMetronomeOffText = "    Turn off    ";
-const char* metrumText = "     Metrum     ";
-const char* tempoText = "     Tempo      ";
-const char* brightnessText = "   Brightness   ";
 
 #ifdef	__cplusplus
 }

@@ -56,9 +56,9 @@
 
 void main(void) {
     
-    EntriesInit(&(LocalSystemStatus));
+    EntriesInit(&(SystemUIStatus), &LocalDataSource);
     struct MenuEntry *actualEntry;
-    actualEntry = &(LocalSystemStatus.entries[0]);
+    actualEntry = &(SystemUIStatus.entries[0]);
     
     InitOscillator();
     

@@ -35,7 +35,8 @@ typedef struct
     uint16_t ticksCounter;
     uint8_t actualTicksCounter;
     
-    bool controlGPIO;
+    uint8_t controlGPIO : 1;
+    uint8_t isEnabled : 1;
     uint8_t pinMask;
     
     uint8_t *pointerToGPIO;

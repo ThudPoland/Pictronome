@@ -47,36 +47,42 @@ void InitBuzzerData(BuzzerAlgorithmData *data)
 
 void ControlBuzzer(BuzzerAlgorithmData* data)
 {
-    if(++(data->ticksCounter) == data->ticksDelay && data->controlGPIO == false)
+    if(data->isEnabled)
     {
-        data->controlGPIO = true;
-        *data->pointerToGPIO |= 0x00 + (0x01 << data->pinMask);
-    }
-    else if(data->controlGPIO == true && data->ticksCounter >= data->ticksDelay + data->soundTime)
-    {
-        data->timeCounter = 0;
-        data->controlGPIO = false;
-        data->ticksCounter = 0;
-
-        *data->pointerToGPIO &= (0xFF - ((0x01) << data->pinMask));
-
-        if(++(data->actualMetrumTick) > data->metrumTicksNumber)
+        if(++(data->ticksCounter) == data->ticksDelay && data->controlGPIO == false)
         {
-            data->actualMetrumTick = 0;
+            data->controlGPIO = true;
+            *data->pointerToGPIO |= 0x00 + (0x01 << data->pinMask);
         }
-    }
-    else if(data->controlGPIO && data->ticksCounter < data->ticksDelay + data->soundTime)
-    {
-        uint8_t timeValueForActualTick = 0;
-
-        if(data->actualMetrumTick == data->metrumTicksNumber) timeValueForActualTick = data->timeAccent;
-        else timeValueForActualTick = data->timeNormal;
-
-        if(++(data->timeCounter) >= timeValueForActualTick)
+        else if(data->controlGPIO == true && data->ticksCounter >= data->ticksDelay + data->soundTime)
         {
-            *(data->pointerToGPIO) ^= 1 << data->pinMask;
             data->timeCounter = 0;
+            data->controlGPIO = false;
+            data->ticksCounter = 0;
+
+            *data->pointerToGPIO &= (0xFF - ((0x01) << data->pinMask));
+
+            if(++(data->actualMetrumTick) > data->metrumTicksNumber)
+            {
+                data->actualMetrumTick = 0;
+            }
+        }
+        else if(data->controlGPIO && data->ticksCounter < data->ticksDelay + data->soundTime)
+        {
+            uint8_t timeValueForActualTick = 0;
+
+            if(data->actualMetrumTick == data->metrumTicksNumber) timeValueForActualTick = data->timeAccent;
+            else timeValueForActualTick = data->timeNormal;
+
+            if(++(data->timeCounter) >= timeValueForActualTick)
+            {
+                *(data->pointerToGPIO) ^= 1 << data->pinMask;
+                data->timeCounter = 0;
+            }
+        }
+        else
+        {
+            *data->pointerToGPIO = 0;
         }
     }
-
 }
