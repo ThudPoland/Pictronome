@@ -13,18 +13,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/src/i2c-tools.c</file>
-            <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/include/navigation.h</file>
+            <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/src/data.c</file>
+            <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/include/config.h</file>
+            <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/src/buzzer.c</file>
             <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/include/buzzer.h</file>
             <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/include/data.h</file>
-            <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/include/i2c-tools.h</file>
-            <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/src/init.c</file>
-            <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/include/menuentry.h</file>
-            <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/src/menuentry.c</file>
-            <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/include/interrupts.h</file>
+            <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/src/utils.c</file>
             <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/include/init.h</file>
             <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/src/i2c.c</file>
-            <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/src/navigation.c</file>
-            <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/include/buttons.h</file>
+            <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/src/main.c</file>
+            <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/src/init.c</file>
+            <file>file:/C:/Users/kozok/Pictronome/code/MasterPictronome.X/include/utils.h</file>
         </group>
     </open-files>
 </project-private>

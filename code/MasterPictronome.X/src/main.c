@@ -53,10 +53,12 @@
 #include "../include/menuentry.h"
 #include "../include/init.h"
 #include "../include/navigation.h"
+#include "../include/data.h"
 
 void main(void) {
     
     EntriesInit(&(SystemUIStatus), &LocalDataSource);
+    InitDataSource(&LocalDataSource, &LocalInterruptsStatus);
     struct MenuEntry *actualEntry;
     actualEntry = &(SystemUIStatus.entries[0]);
     
@@ -95,6 +97,7 @@ void main(void) {
     InitBuzzerPinout(&(LocalInterruptsStatus.buzzerData), &LATC, 7);
     
     LocalInterruptsStatus.timer.enabled = true;
+    LocalInterruptsStatus.buzzerData.isEnabled = true;
     //InitSoftPWMConfiguration(&(LocalInterruptsStatus.settings), 100, 10);
     
     //InitSoftPWMHardware();

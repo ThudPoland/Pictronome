@@ -13,6 +13,7 @@ extern "C" {
 #endif
 
 #include "data.h"
+#include "utils.h"
 
 void EntriesInit(struct SystemUI* status, struct DataSource *source);
 void NavigateLeft(void** object);

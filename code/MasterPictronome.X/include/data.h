@@ -50,13 +50,13 @@ struct SystemStatus LocalInterruptsStatus;
 struct SystemUI SystemUIStatus;
 struct DataSource LocalDataSource;
 
-const char* toggleMetronomeOnText = "    Turn on     ";
-const char* toggleMetronomeOffText = "    Turn off    ";
+const char* toggleMetronomeOnText = "    Turned on   ";
+const char* toggleMetronomeOffText = "   Turned off   ";
 const char* metrumText = "     Metrum     ";
 const char* tempoText = "     Tempo      ";
 const char* brightnessText = "   Brightness   ";
 
-void InitDataSource(struct DataSource** localDataSource, struct SystemStatus *localInterruptStatus);
+void InitDataSource(struct DataSource* localDataSource, struct SystemStatus *localInterruptStatus);
 
 #ifdef	__cplusplus
 }

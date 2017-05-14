@@ -7,12 +7,12 @@ void ToggleBuzzer(void** object)
     
     if(source->buzzer->isEnabled)
     {
-        entry->firstLineContent = toggleMetronomeOnText;
+        entry->firstLineContent = toggleMetronomeOffText;
         source->buzzer->isEnabled = 0;
     }
     else
     {
-        entry->firstLineContent = toggleMetronomeOffText;
+        entry->firstLineContent = toggleMetronomeOnText;
         source->buzzer->isEnabled = 1;
     }
 }

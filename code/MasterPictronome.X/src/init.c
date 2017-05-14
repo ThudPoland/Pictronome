@@ -7,6 +7,7 @@ void EntriesInit(struct SystemUI* status, struct DataSource *source)
     status->entries[0].firstMenuAction = NavigateLeft;
     status->entries[0].secondMenuAction = NavigateRight;
     status->entries[0].dataSource = source;
+    status->entries[0].thirdMenuAction = ToggleBuzzer;
     
     status->entries[1].leftNeighbor = &status->entries[0];
     status->entries[1].rightNeighbor = &status->entries[2];

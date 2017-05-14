@@ -15,17 +15,17 @@ bool Navigate(struct MenuEntry **entry, ButtonFlags* flags)
     else if(flags->button3Flag)
     {
         flags->button3Flag = 0;
-        return ExecuteSecondAction(entry);
+        return ExecuteThirdAction(entry);
     }
     else if(flags->button4Flag)
     {
         flags->button4Flag = 0;
-        return ExecuteThirdAction(entry);
+        return ExecuteFourthAction(entry);
     }
     else if(flags->button5Flag)
     {
         flags->button5Flag = 0;
-        return ExecuteFourthAction(entry);
+        //return ExecuteFifthAction(entry);
     }
     
     return false;

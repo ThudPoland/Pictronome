@@ -29,11 +29,11 @@ void InitBuzzerPinout(BuzzerAlgorithmData *data, void *pin, uint8_t pinMask)
 
 void InitBuzzerData(BuzzerAlgorithmData *data)
 {
-    data->timeAccent = 5;
-    data->timeNormal = 10;
+    data->timeAccent = 3;
+    data->timeNormal = 9;
 
-    data->soundTime = 400;
-    data->ticksDelay = 1000;
+    data->soundTime = 200;
+    data->ticksDelay = 300;
     data->metrumTicksNumber = 4;
     data->pinMask = 0;
     data->controlGPIO = false;
@@ -62,7 +62,7 @@ void ControlBuzzer(BuzzerAlgorithmData* data)
 
             *data->pointerToGPIO &= (0xFF - ((0x01) << data->pinMask));
 
-            if(++(data->actualMetrumTick) > data->metrumTicksNumber)
+            if(++(data->actualMetrumTick) > data->metrumTicksNumber - 1)
             {
                 data->actualMetrumTick = 0;
             }
@@ -71,7 +71,7 @@ void ControlBuzzer(BuzzerAlgorithmData* data)
         {
             uint8_t timeValueForActualTick = 0;
 
-            if(data->actualMetrumTick == data->metrumTicksNumber) timeValueForActualTick = data->timeAccent;
+            if(data->actualMetrumTick == data->metrumTicksNumber - 1) timeValueForActualTick = data->timeAccent;
             else timeValueForActualTick = data->timeNormal;
 
             if(++(data->timeCounter) >= timeValueForActualTick)
@@ -82,7 +82,7 @@ void ControlBuzzer(BuzzerAlgorithmData* data)
         }
         else
         {
-            *data->pointerToGPIO = 0;
+            *(data->pointerToGPIO) &= ~(1 << data->pinMask);
         }
     }
 }
