@@ -10,6 +10,8 @@
 
 #include <pic16f1709.h>
 
+#include <stdint.h>
+
 #ifdef	__cplusplus
 extern "C" {
 #endif
@@ -20,7 +22,9 @@ extern "C" {
 #define PWM_PRESCALER64 0x11
 #define PWM_PRESCALER4 0x01
 #define PWM3_PPS 0b01110
+    
 void InitPWMController();
+void SetPWMValue(uint8_t duty);
 
 
 #ifdef	__cplusplus

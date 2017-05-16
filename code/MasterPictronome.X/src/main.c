@@ -47,7 +47,7 @@
 #include "../include/i2c-tools.h"
 #include "../include/systicktimer.h"
 #include "../include/buttons.h"
-#include "../include/softpwm.h"
+#include "../include/pwm.h"
 #include "../include/systicktimer.h"
 #include "../include/buzzer.h"
 #include "../include/menuentry.h"
@@ -63,7 +63,8 @@ void main(void) {
     struct MenuEntry *actualEntry;
     actualEntry = &(SystemUIStatus.entries[0]);
     
-        InitPWMController();
+    InitPWMController();
+    SetPWMValue(100);
     
     InitOscillator();
     
