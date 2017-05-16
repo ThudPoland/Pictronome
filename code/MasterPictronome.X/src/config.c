@@ -8,10 +8,18 @@
 
 #include "../include/config.h"
 
-void InitInterrupts()
+void EnableInterrupts()
 {
     //Enable global interrupts
     INTCONbits.GIE = 1;
     //Enable peripheral interrupts
     INTCONbits.PEIE = 1;
+}
+
+void DisableInterrupts()
+{
+    //Enable global interrupts
+    INTCONbits.GIE = 0;
+    //Enable peripheral interrupts
+    INTCONbits.PEIE = 0;
 }

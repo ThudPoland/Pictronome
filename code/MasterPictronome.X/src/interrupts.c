@@ -75,9 +75,4 @@
             status->isKeyboardInterrupt = false;
         }
         
-        if(status->isSoftwarePWMInterrupt == true)
-        {
-            PWMController(&status->settings);
-            status->isSoftwarePWMInterrupt = false;
-        }
     }

@@ -57,6 +57,7 @@
 
 void main(void) {
     
+    bool proceedNavigation = false;
     EntriesInit(&(SystemUIStatus), &LocalDataSource);
     InitDataSource(&LocalDataSource, &LocalInterruptsStatus);
     struct MenuEntry *actualEntry;
@@ -76,7 +77,7 @@ void main(void) {
     
     //InitSysTickTimer0();
     
-    InitInterrupts();
+    EnableInterrupts();
     
     //EnableSysTickInterrupt();
    
@@ -98,13 +99,16 @@ void main(void) {
     
     LocalInterruptsStatus.timer.enabled = true;
     LocalInterruptsStatus.buzzerData.isEnabled = true;
-    //InitSoftPWMConfiguration(&(LocalInterruptsStatus.settings), 100, 10);
     
     //InitSoftPWMHardware();
     
     mainLoop()
     {
-        if(Navigate(&actualEntry, &(LocalInterruptsStatus.flags))) DisplayMenu(actualEntry, &LocalInterruptsStatus);
+        proceedNavigation = Navigate(&actualEntry, &(LocalInterruptsStatus.flags));
+        if(proceedNavigation)
+        {
+            DisplayMenu(actualEntry, &LocalInterruptsStatus);
+        }
     }
     
 }

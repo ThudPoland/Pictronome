@@ -15,7 +15,8 @@
 extern "C" {
 #endif
 
-    void InitInterrupts();
+void EnableInterrupts();
+void DisableInterrupts();
 
 #ifdef	__cplusplus
 }

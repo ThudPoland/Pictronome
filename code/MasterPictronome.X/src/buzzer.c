@@ -80,9 +80,9 @@ void ControlBuzzer(BuzzerAlgorithmData* data)
                 data->timeCounter = 0;
             }
         }
-        else
-        {
-            *(data->pointerToGPIO) &= ~(1 << data->pinMask);
-        }
+    }
+    else
+    {
+        *(data->pointerToGPIO) &= ~(1 << data->pinMask);
     }
 }

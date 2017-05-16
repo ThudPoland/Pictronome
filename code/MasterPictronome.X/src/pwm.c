@@ -2,17 +2,13 @@
 
 void InitPWMController()
 {
-    //Set PWM output bits to input.
-    ANSELCbits.ANSC6 = 0;
-    ANSELCbits.ANSC7 = 0;
-    TRISCbits.TRISC6 = 1;
-    TRISCbits.TRISC7 = 1;
+    T2CONbits.T2CKPS = PWM_PRESCALER4;
+    T2CONbits.T2OUTPS = PWM_PRESCALER1;
+    T2CONbits.TMR2ON = 1;
     
-    //Clear actual config
-    PWM3CON = 0;
-    PWM4CON = 0;
+    PIE2bits.TMR4IE = 1;
     
     //Set maximum period for maximum resolution
-    PR2 = 255;
-    
+    PR2 = 99;
+    CCP1CONbits.CCP1M = PWM_MODE; //PWM mode
 }

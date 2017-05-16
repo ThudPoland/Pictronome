@@ -16,3 +16,12 @@ void ToggleBuzzer(void** object)
         source->buzzer->isEnabled = 1;
     }
 }
+
+void IncreaseDisplayBrightness(void** object)
+{
+    struct MenuEntry* entry = *object;
+    
+    struct DataSource* source = entry->dataSource;
+    
+    
+}

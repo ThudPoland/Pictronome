@@ -29,7 +29,6 @@ struct SystemStatus
     uint8_t isSysTickReady : 1;
     uint8_t isBuzzerReady : 1;
     BuzzerAlgorithmData buzzerData;
-    SoftPWMSettings settings;
     I2CProcess communicationProcess;
     SysTick timer;
     ButtonFlags flags;
@@ -44,6 +43,7 @@ struct SystemUI
 struct DataSource
 {
     BuzzerAlgorithmData *buzzer;
+    uint8_t brightness;
 };
 
 struct SystemStatus LocalInterruptsStatus;
@@ -55,6 +55,7 @@ const char* toggleMetronomeOffText = "   Turned off   ";
 const char* metrumText = "     Metrum     ";
 const char* tempoText = "     Tempo      ";
 const char* brightnessText = "   Brightness   ";
+char* bar = "  X          X  ";
 
 void InitDataSource(struct DataSource* localDataSource, struct SystemStatus *localInterruptStatus);
 
