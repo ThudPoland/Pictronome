@@ -23,7 +23,7 @@
 
 // CONFIG2
 #pragma config WRT = OFF        // Flash Memory Self-Write Protection (Write protection off)
-#pragma config PPS1WAY = ON     // Peripheral Pin Select one-way control (The PPSLOCK bit cannot be cleared once it is set by software)
+#pragma config PPS1WAY = OFF     // Peripheral Pin Select one-way control (The PPSLOCK bit cannot be cleared once it is set by software)
 #pragma config ZCDDIS = ON      // Zero-cross detect disable (Zero-cross detect circuit is disabled at POR)
 #pragma config PLLEN = OFF      // Phase Lock Loop enable (4x PLL is enabled when software sets the SPLLEN bit)
 #pragma config STVREN = ON      // Stack Overflow/Underflow Reset Enable (Stack Overflow or Underflow will cause a Reset)
@@ -63,15 +63,13 @@ void main(void) {
     struct MenuEntry *actualEntry;
     actualEntry = &(SystemUIStatus.entries[0]);
     
+        InitPWMController();
+    
     InitOscillator();
     
     InitI2CIO();
     
     __delay_ms(1000);
-    
-    TRISCbits.TRISC5 = 0;
-    
-    LATCbits.LATC5 = 1;
     
     CreateI2C(&(LocalInterruptsStatus.communicationProcess));
     
@@ -99,8 +97,6 @@ void main(void) {
     
     LocalInterruptsStatus.timer.enabled = true;
     LocalInterruptsStatus.buzzerData.isEnabled = true;
-    
-    //InitSoftPWMHardware();
     
     mainLoop()
     {
