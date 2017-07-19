@@ -9,6 +9,7 @@
 #define	UTILS_H
 
 #include "data.h"
+#include <stdint.h>
 
 #ifdef	__cplusplus
 extern "C" {
@@ -16,6 +17,8 @@ extern "C" {
 
 
 void ToggleBuzzer(void** object);
+void DecreaseDisplayBrightness(void** object);
+void IncreaseDisplayBrightness(void** object);
 
 #ifdef	__cplusplus
 }

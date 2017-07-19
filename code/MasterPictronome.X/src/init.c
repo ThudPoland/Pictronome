@@ -27,7 +27,19 @@ void EntriesInit(struct SystemUI* status, struct DataSource *source)
     status->entries[3].firstLineContent = brightnessText;
     status->entries[3].firstMenuAction = NavigateLeft;
     status->entries[3].secondMenuAction = NavigateRight;
+    status->entries[3].child = &status->entries[4];
+    status->entries[3].thirdMenuAction = NavigateUp;
     status->entries[3].dataSource = source;
+    
+    //InitBar(source->bar);
+    
+    status->entries[4].firstLineContent = brightnessSetText;
+    status->entries[4].secondLineContent = source->bar;
+    status->entries[4].parent = &status->entries[3];
+    status->entries[4].fourthMenuAction = NavigateDown;
+    status->entries[4].dataSource = source;
+    status->entries[4].firstMenuAction = DecreaseDisplayBrightness;
+    status->entries[4].secondMenuAction = IncreaseDisplayBrightness;
 }
 
 void NavigateLeft(void** object)

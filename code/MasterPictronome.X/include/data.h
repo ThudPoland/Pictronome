@@ -21,6 +21,9 @@
 extern "C" {
 #endif
     
+#define BAR_BASE "  X          X  "
+#define PROGRESS_OFFSET 3
+    
 struct SystemStatus
 {
     uint8_t isSoftwarePWMInterrupt : 1;
@@ -44,6 +47,7 @@ struct DataSource
 {
     BuzzerAlgorithmData *buzzer;
     uint8_t brightness;
+    char* bar;
 };
 
 struct SystemStatus LocalInterruptsStatus;
@@ -55,7 +59,8 @@ const char* toggleMetronomeOffText = "   Turned off   ";
 const char* metrumText = "     Metrum     ";
 const char* tempoText = "     Tempo      ";
 const char* brightnessText = "   Brightness   ";
-char* bar = "  X          X  ";
+const char* brightnessSetText = "   Brightness:  ";
+const char* barBase = BAR_BASE;
 
 void InitDataSource(struct DataSource* localDataSource, struct SystemStatus *localInterruptStatus);
 

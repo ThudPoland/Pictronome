@@ -54,6 +54,7 @@
 #include "../include/init.h"
 #include "../include/navigation.h"
 #include "../include/data.h"
+#include "../include/config.h"
 
 void main(void) {
     
