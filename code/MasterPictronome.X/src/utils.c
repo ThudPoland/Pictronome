@@ -67,3 +67,28 @@ void DecreaseDisplayBrightness(void** object)
     entry->secondLineContent = source->bar;  
 }
 
+void IncreaseTempo(void** object)
+{   
+    struct MenuEntry* entry = *object;
+    
+    struct DataSource* source = entry->dataSource;
+    
+    if(source->tempo < 999) source->tempo++;
+    else source->tempo = 0;
+    
+    NumberToString(source->tempo, TEMPO_TEXT_OFFSET, 16, source->tempoText);
+    entry->secondLineContent = source->tempoText;   
+}
+
+void DecreaseTempo(void** object)
+{
+    struct MenuEntry* entry = *object;
+    
+    struct DataSource* source = entry->dataSource;
+    
+    if(source->tempo > 0) source->tempo--;
+    else source->tempo = 999;
+    
+    NumberToString(source->tempo, TEMPO_TEXT_OFFSET, 16, source->tempoText);
+    entry->secondLineContent = source->tempoText;   
+}

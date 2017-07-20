@@ -4,6 +4,7 @@ void EntriesInit(struct SystemUI* status, struct DataSource *source)
 {    
     status->entries[0].rightNeighbor = &status->entries[1];
     status->entries[0].firstLineContent = toggleMetronomeOnText;
+    status->entries[0].secondLineContent = NULL;
     status->entries[0].firstMenuAction = NavigateLeft;
     status->entries[0].secondMenuAction = NavigateRight;
     status->entries[0].dataSource = source;
@@ -12,6 +13,7 @@ void EntriesInit(struct SystemUI* status, struct DataSource *source)
     status->entries[1].leftNeighbor = &status->entries[0];
     status->entries[1].rightNeighbor = &status->entries[2];
     status->entries[1].firstLineContent = metrumText;
+    status->entries[0].secondLineContent = NULL;
     status->entries[1].firstMenuAction = NavigateLeft;
     status->entries[1].secondMenuAction = NavigateRight;
     status->entries[1].dataSource = source;
@@ -19,12 +21,16 @@ void EntriesInit(struct SystemUI* status, struct DataSource *source)
     status->entries[2].leftNeighbor = &status->entries[1];
     status->entries[2].rightNeighbor = &status->entries[3];
     status->entries[2].firstLineContent = tempoText;
+    status->entries[0].secondLineContent = NULL;
+    status->entries[2].child = &status->entries[5];
     status->entries[2].firstMenuAction = NavigateLeft;
     status->entries[2].secondMenuAction = NavigateRight;
+    status->entries[2].thirdMenuAction = NavigateUp;
     status->entries[2].dataSource = source;
     
     status->entries[3].leftNeighbor = &status->entries[2];
     status->entries[3].firstLineContent = brightnessText;
+    status->entries[0].secondLineContent = NULL;
     status->entries[3].firstMenuAction = NavigateLeft;
     status->entries[3].secondMenuAction = NavigateRight;
     status->entries[3].child = &status->entries[4];
@@ -32,6 +38,8 @@ void EntriesInit(struct SystemUI* status, struct DataSource *source)
     status->entries[3].dataSource = source;
     
     InitBar(source->bar);
+    NumberToString(source->tempo, TEMPO_TEXT_OFFSET, CONTENT_LENGTH, source->tempoText);
+    
     
     status->entries[4].firstLineContent = brightnessSetText;
     status->entries[4].secondLineContent = source->bar;
@@ -40,6 +48,14 @@ void EntriesInit(struct SystemUI* status, struct DataSource *source)
     status->entries[4].dataSource = source;
     status->entries[4].firstMenuAction = DecreaseDisplayBrightness;
     status->entries[4].secondMenuAction = IncreaseDisplayBrightness;
+    
+    status->entries[5].firstLineContent = tempoSetText;
+    status->entries[5].secondLineContent = source->tempoText;
+    status->entries[5].parent = &status->entries[2];
+    status->entries[5].fourthMenuAction = NavigateDown;
+    status->entries[5].dataSource = source;
+    status->entries[5].firstMenuAction = DecreaseTempo;
+    status->entries[5].secondMenuAction = IncreaseTempo;
 }
 
 void NavigateLeft(void** object)

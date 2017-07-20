@@ -15,7 +15,8 @@ extern "C" {
 #include "bar.h"
 #include "data.h"
 #include "utils.h"
-
+#include "lcdtools.h"
+    
 void EntriesInit(struct SystemUI* status, struct DataSource *source);
 void NavigateLeft(void** object);
 void NavigateRight(void** object);

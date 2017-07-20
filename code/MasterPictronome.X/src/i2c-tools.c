@@ -35,6 +35,7 @@ void InitI2CDisplay(struct I2CProcess *process)
 
 void SendData(char* text, int length, I2CProcess* process)
 {   
+    _delay(10000);
     if(length > 20) return;
     
     for(int x = 0; x < length; x++)
@@ -43,11 +44,12 @@ void SendData(char* text, int length, I2CProcess* process)
     }
     
     SendI2CData(process, process->buffer, length, 0b00111110<<1, IgnoreErrors);
-    _delay(1000);
+    _delay(10000);
 }
 
 void SendText(char* text, int length, I2CProcess* process)
 {
+    _delay(10000);
     if(text == 0) return;
     process->buffer[0] = '@';
     
@@ -59,27 +61,29 @@ void SendText(char* text, int length, I2CProcess* process)
     }
     
     SendI2CData(process, process->buffer, length+1, 0b00111110<<1, IgnoreErrors);
-    _delay(1000);
+    _delay(10000);
 }
 
 void ClearDisplay(struct I2CProcess* process)
 {
+    _delay(10000);
     const uint8_t clearTable[2] = {
         0,
         0x01,
     };
     
     SendData(clearTable, 2, process);
-    _delay(1000);
+    _delay(10000);
 }
 
 void SetSecondLine(struct I2CProcess* process)
 {
+    _delay(10000);
     const uint8_t secondLineTable[2] = {
         0,
         0xC0,
     };
     
     SendData(secondLineTable, 2, process);
-    _delay(1000);
+    _delay(10000);
 }

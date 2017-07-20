@@ -22,6 +22,7 @@ extern "C" {
 #endif
     
 #define PROGRESS_OFFSET 3
+#define TEMPO_TEXT_OFFSET 5
     
 struct SystemStatus
 {
@@ -47,6 +48,8 @@ struct DataSource
     BuzzerAlgorithmData *buzzer;
     uint8_t brightness;
     char bar[16];
+    uint16_t tempo;
+    char tempoText[16];
 };
 
 struct SystemStatus LocalInterruptsStatus;
@@ -57,6 +60,7 @@ const char* toggleMetronomeOnText = "    Turned on   ";
 const char* toggleMetronomeOffText = "   Turned off   ";
 const char* metrumText = "     Metrum     ";
 const char* tempoText = "     Tempo      ";
+const char* tempoSetText = "     Tempo:     ";
 const char* brightnessText = "   Brightness   ";
 const char* brightnessSetText = "   Brightness:  ";
 

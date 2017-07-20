@@ -12,7 +12,9 @@
 extern "C" {
 #endif
 
-
+#include <stdint.h>
+    
+void NumberToString(uint16_t number, uint8_t offset, uint8_t overallLength, char *buffer);
 
 
 #ifdef	__cplusplus

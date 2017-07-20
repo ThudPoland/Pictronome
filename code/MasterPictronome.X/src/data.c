@@ -4,4 +4,5 @@ void InitDataSource(struct DataSource* localDataSource, struct SystemStatus *loc
 {
     localDataSource->buzzer = &(localInterruptStatus->buzzerData);
     localDataSource->brightness = 0;
+    localDataSource->tempo = 100;
 }

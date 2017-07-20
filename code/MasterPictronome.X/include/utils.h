@@ -10,6 +10,7 @@
 
 #include "data.h"
 #include "bar.h"
+#include "lcdtools.h"
 #include <stdint.h>
 
 #ifdef	__cplusplus
@@ -18,8 +19,12 @@ extern "C" {
 
 
 void ToggleBuzzer(void** object);
+
 void DecreaseDisplayBrightness(void** object);
 void IncreaseDisplayBrightness(void** object);
+
+void DecreaseTempo(void** object);
+void IncreaseTempo(void** object);
 
 #ifdef	__cplusplus
 }
