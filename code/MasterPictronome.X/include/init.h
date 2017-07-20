@@ -12,6 +12,7 @@
 extern "C" {
 #endif
 
+#include "bar.h"
 #include "data.h"
 #include "utils.h"
 

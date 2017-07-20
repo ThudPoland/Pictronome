@@ -1,11 +1,4 @@
 #include "../include/utils.h"
-void InitBar(char* bar)
-{
-    for(int counter = 0; counter < 16; counter++)
-    {
-        bar[counter] = barBase[counter];
-    }
-}
 
 void ToggleBuzzer(void** object)
 {

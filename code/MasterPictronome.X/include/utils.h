@@ -9,6 +9,7 @@
 #define	UTILS_H
 
 #include "data.h"
+#include "bar.h"
 #include <stdint.h>
 
 #ifdef	__cplusplus

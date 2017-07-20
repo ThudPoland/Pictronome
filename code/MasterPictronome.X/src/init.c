@@ -31,7 +31,7 @@ void EntriesInit(struct SystemUI* status, struct DataSource *source)
     status->entries[3].thirdMenuAction = NavigateUp;
     status->entries[3].dataSource = source;
     
-    //InitBar(source->bar);
+    InitBar(source->bar);
     
     status->entries[4].firstLineContent = brightnessSetText;
     status->entries[4].secondLineContent = source->bar;

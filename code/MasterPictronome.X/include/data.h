@@ -21,7 +21,6 @@
 extern "C" {
 #endif
     
-#define BAR_BASE "  X          X  "
 #define PROGRESS_OFFSET 3
     
 struct SystemStatus
@@ -47,7 +46,7 @@ struct DataSource
 {
     BuzzerAlgorithmData *buzzer;
     uint8_t brightness;
-    char* bar;
+    char bar[16];
 };
 
 struct SystemStatus LocalInterruptsStatus;
@@ -60,7 +59,6 @@ const char* metrumText = "     Metrum     ";
 const char* tempoText = "     Tempo      ";
 const char* brightnessText = "   Brightness   ";
 const char* brightnessSetText = "   Brightness:  ";
-const char* barBase = BAR_BASE;
 
 void InitDataSource(struct DataSource* localDataSource, struct SystemStatus *localInterruptStatus);
 

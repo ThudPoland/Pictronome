@@ -24,6 +24,7 @@
         <itemPath>include/navigation.h</itemPath>
         <itemPath>include/ui.h</itemPath>
         <itemPath>include/utils.h</itemPath>
+        <itemPath>include/bar.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -53,6 +54,7 @@
         <itemPath>src/ui.c</itemPath>
         <itemPath>src/utils.c</itemPath>
         <itemPath>src/data.c</itemPath>
+        <itemPath>src/bar.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -76,7 +78,7 @@
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.42</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>2</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
