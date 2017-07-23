@@ -16,6 +16,7 @@
 #include "menuentry.h"
 #include "buttons.h"
 #include "buttonstruct.h"
+#include "timer.h"
 
 #ifdef	__cplusplus
 extern "C" {
@@ -35,6 +36,8 @@ struct SystemStatus
     I2CProcess communicationProcess;
     SysTick timer;
     ButtonFlags flags;
+    bool needRefresh;
+    Timer refreshTimer;
 };
 
 struct SystemUI

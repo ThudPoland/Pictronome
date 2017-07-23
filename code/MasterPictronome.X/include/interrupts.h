@@ -17,6 +17,7 @@
 #include "data.h"
 #include "buttons.h"
 #include "buzzer.h"
+#include "timer.h"
 
 #include "i2c.h"
 

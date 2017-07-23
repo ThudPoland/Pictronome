@@ -37,4 +37,5 @@ void DisplayMenu(struct MenuEntry *entry, struct SystemStatus *system)
     SendText(entry->firstLineContent, CONTENT_LENGTH, &(system->communicationProcess));
     SetSecondLine(&(system->communicationProcess));
     SendText(entry->secondLineContent, CONTENT_LENGTH, &(system->communicationProcess));
+    system->needRefresh = false;
 }
