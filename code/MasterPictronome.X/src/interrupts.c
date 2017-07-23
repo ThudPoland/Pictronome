@@ -65,7 +65,6 @@
         if(status->isSysTickReady)
         {
             IncreaseSysTick(&status->timer);
-            RefreshTimer(&status->refreshTimer);
             ControlBuzzer(&status->buzzerData);
             status->isSysTickReady = false;
         }

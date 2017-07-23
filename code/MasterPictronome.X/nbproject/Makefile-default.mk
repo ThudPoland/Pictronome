@@ -44,6 +44,12 @@ else
 COMPARISON_BUILD=
 endif
 
+ifdef SUB_IMAGE_ADDRESS
+
+else
+SUB_IMAGE_ADDRESS_COMMAND=
+endif
+
 # Object Directory
 OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 
@@ -51,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=src/systicktimer.c src/buttons.c src/config.c src/i2c-tools.c src/i2c.c src/interrupts.c src/main.c src/menuentry.c src/oscillator.c src/pwm.c src/softpwm.c src/buzzer.c src/init.c src/lcdtools.c src/navigation.c src/delegate.c src/ui.c src/utils.c src/data.c src/bar.c src/timer.c
+SOURCEFILES_QUOTED_IF_SPACED=src/systicktimer.c src/buttons.c src/config.c src/i2c-tools.c src/i2c.c src/interrupts.c src/main.c src/menuentry.c src/oscillator.c src/pwm.c src/softpwm.c src/buzzer.c src/init.c src/lcdtools.c src/navigation.c src/delegate.c src/ui.c src/utils.c src/data.c src/bar.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/systicktimer.p1 ${OBJECTDIR}/src/buttons.p1 ${OBJECTDIR}/src/config.p1 ${OBJECTDIR}/src/i2c-tools.p1 ${OBJECTDIR}/src/i2c.p1 ${OBJECTDIR}/src/interrupts.p1 ${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/menuentry.p1 ${OBJECTDIR}/src/oscillator.p1 ${OBJECTDIR}/src/pwm.p1 ${OBJECTDIR}/src/softpwm.p1 ${OBJECTDIR}/src/buzzer.p1 ${OBJECTDIR}/src/init.p1 ${OBJECTDIR}/src/lcdtools.p1 ${OBJECTDIR}/src/navigation.p1 ${OBJECTDIR}/src/delegate.p1 ${OBJECTDIR}/src/ui.p1 ${OBJECTDIR}/src/utils.p1 ${OBJECTDIR}/src/data.p1 ${OBJECTDIR}/src/bar.p1 ${OBJECTDIR}/src/timer.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/src/systicktimer.p1.d ${OBJECTDIR}/src/buttons.p1.d ${OBJECTDIR}/src/config.p1.d ${OBJECTDIR}/src/i2c-tools.p1.d ${OBJECTDIR}/src/i2c.p1.d ${OBJECTDIR}/src/interrupts.p1.d ${OBJECTDIR}/src/main.p1.d ${OBJECTDIR}/src/menuentry.p1.d ${OBJECTDIR}/src/oscillator.p1.d ${OBJECTDIR}/src/pwm.p1.d ${OBJECTDIR}/src/softpwm.p1.d ${OBJECTDIR}/src/buzzer.p1.d ${OBJECTDIR}/src/init.p1.d ${OBJECTDIR}/src/lcdtools.p1.d ${OBJECTDIR}/src/navigation.p1.d ${OBJECTDIR}/src/delegate.p1.d ${OBJECTDIR}/src/ui.p1.d ${OBJECTDIR}/src/utils.p1.d ${OBJECTDIR}/src/data.p1.d ${OBJECTDIR}/src/bar.p1.d ${OBJECTDIR}/src/timer.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/systicktimer.p1 ${OBJECTDIR}/src/buttons.p1 ${OBJECTDIR}/src/config.p1 ${OBJECTDIR}/src/i2c-tools.p1 ${OBJECTDIR}/src/i2c.p1 ${OBJECTDIR}/src/interrupts.p1 ${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/menuentry.p1 ${OBJECTDIR}/src/oscillator.p1 ${OBJECTDIR}/src/pwm.p1 ${OBJECTDIR}/src/softpwm.p1 ${OBJECTDIR}/src/buzzer.p1 ${OBJECTDIR}/src/init.p1 ${OBJECTDIR}/src/lcdtools.p1 ${OBJECTDIR}/src/navigation.p1 ${OBJECTDIR}/src/delegate.p1 ${OBJECTDIR}/src/ui.p1 ${OBJECTDIR}/src/utils.p1 ${OBJECTDIR}/src/data.p1 ${OBJECTDIR}/src/bar.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/src/systicktimer.p1.d ${OBJECTDIR}/src/buttons.p1.d ${OBJECTDIR}/src/config.p1.d ${OBJECTDIR}/src/i2c-tools.p1.d ${OBJECTDIR}/src/i2c.p1.d ${OBJECTDIR}/src/interrupts.p1.d ${OBJECTDIR}/src/main.p1.d ${OBJECTDIR}/src/menuentry.p1.d ${OBJECTDIR}/src/oscillator.p1.d ${OBJECTDIR}/src/pwm.p1.d ${OBJECTDIR}/src/softpwm.p1.d ${OBJECTDIR}/src/buzzer.p1.d ${OBJECTDIR}/src/init.p1.d ${OBJECTDIR}/src/lcdtools.p1.d ${OBJECTDIR}/src/navigation.p1.d ${OBJECTDIR}/src/delegate.p1.d ${OBJECTDIR}/src/ui.p1.d ${OBJECTDIR}/src/utils.p1.d ${OBJECTDIR}/src/data.p1.d ${OBJECTDIR}/src/bar.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/src/systicktimer.p1 ${OBJECTDIR}/src/buttons.p1 ${OBJECTDIR}/src/config.p1 ${OBJECTDIR}/src/i2c-tools.p1 ${OBJECTDIR}/src/i2c.p1 ${OBJECTDIR}/src/interrupts.p1 ${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/menuentry.p1 ${OBJECTDIR}/src/oscillator.p1 ${OBJECTDIR}/src/pwm.p1 ${OBJECTDIR}/src/softpwm.p1 ${OBJECTDIR}/src/buzzer.p1 ${OBJECTDIR}/src/init.p1 ${OBJECTDIR}/src/lcdtools.p1 ${OBJECTDIR}/src/navigation.p1 ${OBJECTDIR}/src/delegate.p1 ${OBJECTDIR}/src/ui.p1 ${OBJECTDIR}/src/utils.p1 ${OBJECTDIR}/src/data.p1 ${OBJECTDIR}/src/bar.p1 ${OBJECTDIR}/src/timer.p1
+OBJECTFILES=${OBJECTDIR}/src/systicktimer.p1 ${OBJECTDIR}/src/buttons.p1 ${OBJECTDIR}/src/config.p1 ${OBJECTDIR}/src/i2c-tools.p1 ${OBJECTDIR}/src/i2c.p1 ${OBJECTDIR}/src/interrupts.p1 ${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/menuentry.p1 ${OBJECTDIR}/src/oscillator.p1 ${OBJECTDIR}/src/pwm.p1 ${OBJECTDIR}/src/softpwm.p1 ${OBJECTDIR}/src/buzzer.p1 ${OBJECTDIR}/src/init.p1 ${OBJECTDIR}/src/lcdtools.p1 ${OBJECTDIR}/src/navigation.p1 ${OBJECTDIR}/src/delegate.p1 ${OBJECTDIR}/src/ui.p1 ${OBJECTDIR}/src/utils.p1 ${OBJECTDIR}/src/data.p1 ${OBJECTDIR}/src/bar.p1
 
 # Source Files
-SOURCEFILES=src/systicktimer.c src/buttons.c src/config.c src/i2c-tools.c src/i2c.c src/interrupts.c src/main.c src/menuentry.c src/oscillator.c src/pwm.c src/softpwm.c src/buzzer.c src/init.c src/lcdtools.c src/navigation.c src/delegate.c src/ui.c src/utils.c src/data.c src/bar.c src/timer.c
+SOURCEFILES=src/systicktimer.c src/buttons.c src/config.c src/i2c-tools.c src/i2c.c src/interrupts.c src/main.c src/menuentry.c src/oscillator.c src/pwm.c src/softpwm.c src/buzzer.c src/init.c src/lcdtools.c src/navigation.c src/delegate.c src/ui.c src/utils.c src/data.c src/bar.c
 
 
 CFLAGS=
@@ -247,14 +253,6 @@ ${OBJECTDIR}/src/bar.p1: src/bar.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/src/bar.d ${OBJECTDIR}/src/bar.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/bar.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/timer.p1: src/timer.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/src" 
-	@${RM} ${OBJECTDIR}/src/timer.p1.d 
-	@${RM} ${OBJECTDIR}/src/timer.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/timer.p1  src/timer.c 
-	@-${MV} ${OBJECTDIR}/src/timer.d ${OBJECTDIR}/src/timer.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 else
 ${OBJECTDIR}/src/systicktimer.p1: src/systicktimer.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
@@ -415,14 +413,6 @@ ${OBJECTDIR}/src/bar.p1: src/bar.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/bar.p1  src/bar.c 
 	@-${MV} ${OBJECTDIR}/src/bar.d ${OBJECTDIR}/src/bar.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/bar.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/src/timer.p1: src/timer.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/src" 
-	@${RM} ${OBJECTDIR}/src/timer.p1.d 
-	@${RM} ${OBJECTDIR}/src/timer.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/timer.p1  src/timer.c 
-	@-${MV} ${OBJECTDIR}/src/timer.d ${OBJECTDIR}/src/timer.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

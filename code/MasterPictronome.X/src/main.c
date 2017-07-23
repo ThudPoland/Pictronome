@@ -55,17 +55,6 @@
 #include "../include/navigation.h"
 #include "../include/data.h"
 #include "../include/config.h"
-#include "../include/timer.h"
-
-#define MS_DELAY 200
-
-bool RefreshUI(void* dataSource)
-{
-    bool* refreshFlag = (bool*)dataSource;
-    (*refreshFlag) = true;
-    
-    return true;
-}
 
 void main(void) {
     
@@ -111,15 +100,10 @@ void main(void) {
     LocalInterruptsStatus.timer.enabled = true;
     LocalInterruptsStatus.buzzerData.isEnabled = true;
     
-    void* source = &(LocalInterruptsStatus.needRefresh);
-    
-    //(void*)(&())
-    InitTimer(&(LocalInterruptsStatus.refreshTimer), &(LocalInterruptsStatus.timer), source, MS_DELAY, &RefreshUI);
-    
     mainLoop()
     {
         proceedNavigation = Navigate(&actualEntry, &(LocalInterruptsStatus.flags));
-        if(LocalInterruptsStatus.needRefresh == true)
+        if(proceedNavigation)
         {
             DisplayMenu(actualEntry, &LocalInterruptsStatus);
         }
